@@ -37,6 +37,9 @@ class Login extends Component {
         .catch(err => console.log(err));
     }
   };
+  handleFormSignUp = event => {
+    return <Redirect to="/signup" />
+  };
 
   render() {
     return (
@@ -60,11 +63,22 @@ class Login extends Component {
               />
               
               <FormBtn
-                disabled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSubmit}
+                abled={!(this.state.email && this.state.password)}
+                onClick={this.handleFormSignUp}
               >
-                Submit Book
+                Login
               </FormBtn>
+
+              <form>
+              <FormBtn
+              onClick={this.handleFormSubmit}
+             >
+              New User
+              </FormBtn>
+              
+            
+
+              </form>
             </form>
           </Col>
           

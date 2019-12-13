@@ -10,7 +10,8 @@ class Signup extends Component {
     email: "",
     username: "",
     password: "",
-    passwordConf: ""
+    passwordConf: "",
+    servingSize: ""
   };
 
   componentDidMount() {
@@ -67,22 +68,29 @@ class Signup extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(required)"
+                placeholder="Password(required)"
                 type="password"
               />
               <Input
                 value={this.state.passwordConf}
                 onChange={this.handleInputChange}
                 name="passwordConf"
-                placeholder="(required)"
-                type="password"
+                placeholder="Password Match (required)"
+              
               />
               
+              <Input
+                value={this.state.tex}
+                onChange={this.handleInputChange}
+                name="householdnumber"
+                placeholder="Serving Size(required)"
+                type="password"
+              />
               <FormBtn
                 // disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                signup
+                Signup
               </FormBtn>
             </form>
           </Col>
