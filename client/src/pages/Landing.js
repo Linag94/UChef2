@@ -6,11 +6,13 @@ import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import Jumbotron from "../components/Jumbotron";
 
+
 // Make sure to import the correct components
 //Components required:
 //Design the navbar
 //Design the jumbotron
 //Design the landing page layout
+
 
 class Landing extends Component {
   state = {
@@ -31,13 +33,23 @@ class Landing extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Col size="12">
+
               <Jumbotron>
-                  Welcome to uChef! 
+                  <h1>The Chef Has Arrived !</h1>
+                  
+                  <i class="fas fa-columns"></i>
+                  <i class="far fa-lightbulb"></i>
+                  <i class="fas fa-carrot"></i>
+                  <i class="fas fa-leaf"></i>
+                  
+                  <h3>Plan. Create. Cook. Responsibly.</h3>
+                  {/* Add icons. Animate to make them appear in one by one*/}
+                  <div style={"font-family: 'Dancing Script', 'cursive'"}>EcoChef</div>
+
               </Jumbotron>
+  
  
-            <form>
+            {/* <form>
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
@@ -58,10 +70,8 @@ class Landing extends Component {
               >
                 Submit Book
               </FormBtn>
-            </form>
-          </Col>
-          
-        </Row>
+            </form> */}
+
 
         {/* Redirect on authentication */}
         {this.props.authenticated ? <Redirect to='/books'/>: <div></div>}
