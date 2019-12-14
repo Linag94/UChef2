@@ -4,6 +4,7 @@ import API from "../utils/API";
 import {  Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
   state = {
@@ -37,6 +38,7 @@ class Login extends Component {
         .catch(err => console.log(err));
     }
   };
+
   handleFormSignUp = event => {
     return <Redirect to="/signup" />
   };
@@ -64,21 +66,20 @@ class Login extends Component {
               
               <FormBtn
                 abled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSignUp}
+                onClick={this.handleFormSubmit}
               >
                 Login
               </FormBtn>
 
-              <form>
-              <FormBtn
-              onClick={this.handleFormSubmit}
-             >
-              New User
-              </FormBtn>
+              <Link to="/signup">
+               <button  type="button">
+               New User
+                </button>
+             </Link>
               
             
 
-              </form>
+              
             </form>
           </Col>
           

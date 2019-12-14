@@ -11,7 +11,8 @@ class Signup extends Component {
     username: "",
     password: "",
     passwordConf: "",
-    servingSize: ""
+    servingSize: "",
+    mealPreferance: "",
   };
 
   componentDidMount() {
@@ -78,14 +79,31 @@ class Signup extends Component {
                 placeholder="Password Match (required)"
               
               />
-              
-              <Input
-                value={this.state.tex}
-                onChange={this.handleInputChange}
-                name="householdnumber"
-                placeholder="Serving Size(required)"
-                type="password"
-              />
+
+                
+                <form>
+                    <label>
+                      Household Size ?:
+                      <select value={this.state.servingSize} onChange={this.handleChange}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4 +</option>
+                      </select>
+                    </label>
+                  </form>
+                  <form>
+                    <label>
+                      Meal Preference:
+                      <select value={this.state.value} onChange={this.handleChange}>
+                        <option href="Veggie">Vegatarian</option>
+                        <option value="Fish">Pescararian</option>
+                        <option value="Meat">Open</option>
+                        <option value="Low Calorie">Calorie Watching</option>
+                      </select>
+                    </label>
+                  </form>
+
               <FormBtn
                 // disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
