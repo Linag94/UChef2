@@ -4,6 +4,7 @@ import API from "../utils/API";
 import {  Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
   state = {
@@ -38,6 +39,10 @@ class Login extends Component {
     }
   };
 
+  handleFormSignUp = event => {
+    return <Redirect to="/signup" />
+  };
+
   render() {
     return (
       <Container fluid>
@@ -60,11 +65,21 @@ class Login extends Component {
               />
               
               <FormBtn
-                disabled={!(this.state.email && this.state.password)}
+                abled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Login
               </FormBtn>
+
+              <Link to="/signup">
+               <button  type="button">
+               New User
+                </button>
+             </Link>
+              
+            
+
+              
             </form>
           </Col>
           
