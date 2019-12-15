@@ -13,7 +13,6 @@ import Jumbotron from "../components/Jumbotron";
 //Design the jumbotron
 //Design the landing page layout
 
-
 class Landing extends Component {
   state = {
       email: "",
@@ -44,7 +43,7 @@ class Landing extends Component {
                   
                   <h3>Plan. Create. Cook. Responsibly.</h3>
                   {/* Add icons. Animate to make them appear in one by one*/}
-                  <div style={"font-family: 'Dancing Script', 'cursive'"}>EcoChef</div>
+                  <div id="ecochef-jumbo">EcoChef</div>
 
               </Jumbotron>
   
