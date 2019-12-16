@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require("express");
 
 const morgan = require("morgan");
@@ -27,7 +29,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mern-auth", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ecoChefDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
