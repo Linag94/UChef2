@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import API from "../utils/API";
-import {  Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 
@@ -12,13 +12,11 @@ class Signup extends Component {
     password: "",
     passwordConf: "",
     servingSize: "",
-    mealPreferance: "",
+    mealPreferance: ""
   };
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
-  
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -33,13 +31,12 @@ class Signup extends Component {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,
-        passwordConf: this.state.passwordConf,
-
+        passwordConf: this.state.passwordConf
       })
         .then(res => {
-          if(res.status === 200 ){
-            this.props.authenticate();
-            return <Redirect to="/books" />
+          if (res.status === 200) {
+            // this.props.authenticate();
+            return <Redirect to="/books" />;
           }
         })
         .catch(err => console.log(err));
@@ -51,7 +48,6 @@ class Signup extends Component {
       <Container fluid>
         <Row>
           <Col size="12">
- 
             <form>
               <Input
                 value={this.state.username}
@@ -77,32 +73,35 @@ class Signup extends Component {
                 onChange={this.handleInputChange}
                 name="passwordConf"
                 placeholder="Password Match (required)"
-              
+                type="password"
               />
 
-                
-                <form>
-                    <label>
-                      Household Size ?:
-                      <select value={this.state.servingSize} onChange={this.handleChange}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4 +</option>
-                      </select>
-                    </label>
-                  </form>
-                  <form>
-                    <label>
-                      Meal Preference:
-                      <select value={this.state.value} onChange={this.handleChange}>
-                        <option href="Veggie">Vegatarian</option>
-                        <option value="Fish">Pescararian</option>
-                        <option value="Meat">Open</option>
-                        <option value="Low Calorie">Calorie Watching</option>
-                      </select>
-                    </label>
-                  </form>
+              <label>
+                Household Size ?:
+                <select
+                  value={this.state.servingSize}
+                  name="servingSize"
+                  onChange={this.handleInputChange}
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4 +</option>
+                </select>
+              </label>
+              <label>
+                Meal Preference:
+                <select
+                  value={this.state.value}
+                  name="value"
+                  onChange={this.handleInputChange}
+                >
+                  <option href="Veggie">Vegatarian</option>
+                  <option value="Fish">Pescararian</option>
+                  <option value="Meat">Open</option>
+                  <option value="Low Calorie">Calorie Watching</option>
+                </select>
+              </label>
 
               <FormBtn
                 // disabled={!(this.state.email && this.state.password)}
@@ -112,12 +111,9 @@ class Signup extends Component {
               </FormBtn>
             </form>
           </Col>
-          
         </Row>
         {/* redirect on authenticated */}
-        {this.props.authenticated ? <Redirect to='/books'/>: <div></div>}
-
-
+        {this.props.authenticated && <Redirect to="/books" /> }
       </Container>
     );
   }
