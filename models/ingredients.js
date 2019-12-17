@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const ingredientsSchema = new Schema({
   spoonRecipeID: { type: String, required: true },
+  ingredientID: { type: String, required: true },
   amount: { type: String, required: true },
   unit: { type: String, required: true },
   name: { type: String, required: true },
