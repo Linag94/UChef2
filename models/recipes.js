@@ -5,6 +5,7 @@ const recipesSchema = new Schema({
   spoonRecipeID: { type: String, required: true },
   title: { type: String, required: true },
   cookTime: { type: String, required: true },
+  imgURL: { type: String, required: true },
   date: { type: Date, default: Date.now }
 });
 
