@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-
 import API from "../utils/API";
 import {  Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { Input, FormBtn } from "../components/Form";
 import Jumbotron from "../components/Jumbotron";
+
 
 
 // Make sure to import the correct components
@@ -34,7 +33,8 @@ class Landing extends Component {
       <Container fluid>
 
               <Jumbotron>
-                  <h1>The Chef Has Arrived !</h1>
+
+                  <h1>The Chef Has Arrived</h1>
                   
                   <i class="fas fa-columns"></i>
                   <i class="far fa-lightbulb"></i>
@@ -42,6 +42,45 @@ class Landing extends Component {
                   <i class="fas fa-leaf"></i>
                   
                   <h3>Plan. Create. Cook. Responsibly.</h3>
+                  {/* Add icons. Animate to make them appear in one by one*/}
+                  <div id="ecochef-jumbo">EcoChef</div>
+
+              </Jumbotron>
+              <Jumbotron>
+                  <h1>Plan</h1>
+                  
+                  <i class="fas fa-columns"></i>
+                  <i class="far fa-lightbulb"></i>
+                  <i class="fas fa-carrot"></i>
+                  <i class="fas fa-leaf"></i>
+                  
+                  <h3>Like a calculator. For Food.</h3>
+                  {/* Add icons. Animate to make them appear in one by one*/}
+                  <div id="ecochef-jumbo">EcoChef</div>
+
+              </Jumbotron>
+              <Jumbotron>
+                  <h1>Create.</h1>
+                  
+                  <i class="fas fa-columns"></i>
+                  <i class="far fa-lightbulb"></i>
+                  <i class="fas fa-carrot"></i>
+                  <i class="fas fa-leaf"></i>
+                  
+                  <h3>Like a painting canvas. For Food.</h3>
+                  {/* Add icons. Animate to make them appear in one by one*/}
+                  <div id="ecochef-jumbo">EcoChef</div>
+
+              </Jumbotron>
+              <Jumbotron>
+                  <h1>Conscious.</h1>
+                  
+                  <i class="fas fa-columns"></i>
+                  <i class="far fa-lightbulb"></i>
+                  <i class="fas fa-carrot"></i>
+                  <i class="fas fa-leaf"></i>
+                  
+                  <h3>Earth takes care of food. Food takes care of you. So let's take care of Earth.</h3>
                   {/* Add icons. Animate to make them appear in one by one*/}
                   <div id="ecochef-jumbo">EcoChef</div>
 

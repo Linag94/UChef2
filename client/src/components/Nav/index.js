@@ -8,10 +8,10 @@ function Nav() {
         EcoChef
       </a>
     <span className="btn" id="signup" role="button" tabIndex="0">
-      Sign Up
+      <a href="/signup">Sign Up</a>
     </span>
     <span className="btn" id="login" role="button" tabIndex="0">
-      Login
+      <a href="/login">Login</a>
     </span>
     </nav>
   );
