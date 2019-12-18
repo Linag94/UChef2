@@ -1,0 +1,11 @@
+.nav-title-uchef{
+    font-family: 'Dancing Script', 'cursive';
+    font-size: 45px;
+}
+
+#login, #signup{
+    font-size: 25px;
+    float: right;
+    width: 300px;
+    padding: 10px;
+}
