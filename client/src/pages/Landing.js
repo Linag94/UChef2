@@ -87,7 +87,7 @@ class Landing extends Component {
         </MainJumbotron>
 
         {
-          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>)
+          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>, <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
           // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
         }
 
