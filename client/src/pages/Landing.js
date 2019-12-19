@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import {  Redirect } from "react-router-dom";
+import API from '../utils/API';
+import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import MainJumbotron from "../components/MainJumbotron";
 import LandingJumbo from "../components/LandingJumbo";
@@ -22,88 +22,101 @@ var planJumboStyle = {
   backgroundImage: `url(` + PlanImage + `)`,
   height: `100%`,
   width: `100%`,
-  backgroundSize : `cover`,
+  backgroundSize: `cover`,
   backgroundPosition: `center`
 };
 var createJumboStyle = {
   backgroundImage: `url(` + CreateImage + `)`,
   height: `100%`,
   width: `100%`,
-  backgroundSize : `cover`,
+  backgroundSize: `cover`,
   backgroundPosition: `center`
 };
 var consciousJumboStyle = {
   backgroundImage: `url(` + ConsciousImage + `)`,
   height: `100%`,
   width: `100%`,
-  backgroundSize : `cover`,
+  backgroundSize: `cover`,
   backgroundPosition: `center`
 };
 
 class Landing extends Component {
   state = {
-      email: "",
-      password: ""
-    };
-    
+    ingredient: "",
+    spoonacular: []
+  };
+
   componentDidMount() {
   }
-  
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+  searchSpoonacular = () => {
+    API.getSpoonacularResults(this.state.ingredient, 10)
+      .then(results => {
+        this.setState({ spoonacular: results.data.results })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   render() {
     return (
       <Container fluid>
 
-          <MainJumbotron>
-              <h1>The Chef Has Arrived</h1>
-              
-              <i class="fas fa-columns"></i>
-              <i class="far fa-lightbulb"></i>
-              <i class="fas fa-carrot"></i>
-              <i class="fas fa-leaf"></i>
-              
-              <h3>Plan. Create. Cook. Responsibly.</h3>
-              <form method="get" action="/spoonrecipes/:ingredient/:quantity">
-              <input type="text" name="ingredient" id="landing-form" placeholder="Search by Ingredient or Recipe"/>
-              </form>
-              {/* Add icons. Animate to make them appear in one by one*/}
-              <div id="ecochef-jumbo">EcoChef</div>
+        <MainJumbotron>
+          <h1>The Chef Has Arrived</h1>
 
-          </MainJumbotron>
+          <i className="fas fa-columns"></i>
+          <i className="far fa-lightbulb"></i>
+          <i className="fas fa-carrot"></i>
+          <i className="fas fa-leaf"></i>
 
-          
-          <LandingJumbo>
+          <h3>Plan. Create. Cook. Responsibly.</h3>
+          <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
+          <button onClick={this.searchSpoonacular}>Search</button>
+          {/* Add icons. Animate to make them appear in one by one*/}
+          <div id="ecochef-jumbo">EcoChef</div>
+
+
+        </MainJumbotron>
+
+        {
+          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>)
+          // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
+        }
+
+        <LandingJumbo>
           <div style={planJumboStyle}>
-              <h1>Plan</h1>
-            
-              <h3>Like a calculator. For Food.</h3>
-            </div>
-          </LandingJumbo>
-          
-          <LandingJumbo>
+            <h1>Plan</h1>
+
+            <h3>Like a calculator. For Food.</h3>
+          </div>
+        </LandingJumbo>
+
+        <LandingJumbo>
           <div style={createJumboStyle}>
-              <h1>Create.</h1>
-        
-              <h3>Like a painting canvas. For Food.</h3>
+            <h1>Create.</h1>
+
+            <h3>Like a painting canvas. For Food.</h3>
           </div>
 
-          </LandingJumbo>
-          <LandingJumbo>
+        </LandingJumbo>
+        <LandingJumbo>
           <div style={consciousJumboStyle}>
-              <h1>Conscious.</h1>
-    
-              <h3>Earth takes care of food. Food takes care of you. So let's take care of Earth.</h3>
+            <h1>Conscious.</h1>
+
+            <h3>Earth takes care of food. Food takes care of you. So let's take care of Earth.</h3>
           </div>
-          </LandingJumbo>
-  
- 
-            {/* <form>
+        </LandingJumbo>
+
+
+        {/* <form>
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
@@ -128,7 +141,7 @@ class Landing extends Component {
 
 
         {/* Redirect on authentication */}
-        {this.props.authenticated ? <Redirect to='/books'/>: <div></div>}
+        {this.props.authenticated ? <Redirect to='/books' /> : <div></div>}
       </Container>
     );
   }
