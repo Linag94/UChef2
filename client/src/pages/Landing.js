@@ -83,12 +83,13 @@ class Landing extends Component {
           {/* Add icons. Animate to make them appear in one by one*/}
           <div id="ecochef-jumbo">EcoChef</div>
 
-          {
-            this.state.spoonacular.map((recipe, i) => <div key={i + '-recipe'}>{recipe.title}</div>)
-          }
 
         </MainJumbotron>
 
+        {
+          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>)
+          // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
+        }
 
         <LandingJumbo>
           <div style={planJumboStyle}>
