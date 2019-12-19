@@ -6,6 +6,7 @@ const { Ingredients } = require('../../models')
 
 
 router.get("/spoonrecipes/:ingredient/:quantity", async (req, res) => {
+    console.log("Spoonacular api route")
     try {
         const results = await axios.get("https://api.spoonacular.com/recipes/search?query=" + req.params.ingredient + "&number=" + req.params.quantity + "&apiKey=" + process.env.SPOONACULAR_API);
         if (results.status !== 200)

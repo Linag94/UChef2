@@ -9,22 +9,40 @@ const xhrHeader = {
 };
 
 export default {
-  // Gets all books
-  getBooks: function () {
-    return axios.get("/api/books");
+  // Spoonacular routes ============================
+  getSpoonacularResults: (id, num) =>{
+    console.log("API folder")
+    return axios.get(`/api/spoonacular/spoonrecipes/${id}/${num}`)
   },
-  // Gets the book with the given id
-  getBook: function (id) {
-    return axios.get("/api/books/" + id);
+  getSpoonacularInstructions: id =>{
+    return axios.get(`/api/spoonacular/spooninstructions/${id}`)
   },
-  // Deletes the book with the given id
-  deleteBook: function (id) {
-    return axios.delete("/api/books/" + id);
+  getSpoonacularIngredients: id =>{
+    return axios.get(`/api/spoonacular/spooningredients/${id}`)
   },
-  // Saves a book to the database
-  saveBook: function (bookData) {
-    return axios.post("/api/books", bookData);
-  },
+  
+  // Recipes routes ============================
+  getRecipes: ()=> axios.get("/api/ingredients"),
+  addRecipe: data => axios.post("/api/ingredients", data),
+  findRecipeById: id=> axios.get("/api/ingredients/" + id),
+  updateRecipeById: id=> axios.put("/api/ingredients/" + id),
+  deleteRecipetById: id => axios.delete("/api/ingredients/" + id),
+  
+  // Instructions routes ============================
+  // getIngredients: ()=> axios.get("/api/ingredients"),
+  // addIngredient: data => axios.post("/api/ingredients", data),
+  // findIngredientById: id=> axios.get("/api/ingredients/" + id),
+  // updateIngredientById: id=> axios.put("/api/ingredients/" + id),
+  // deleteIngredientById: id => axios.delete("/api/ingredients/" + id),
+  
+  // Ingredients routes ============================
+  getIngredients: ()=> axios.get("/api/ingredients"),
+  addIngredient: data => axios.post("/api/ingredients", data),
+  findIngredientById: id=> axios.get("/api/ingredients/" + id),
+  updateIngredientById: id=> axios.put("/api/ingredients/" + id),
+  deleteIngredientById: id => axios.delete("/api/ingredients/" + id),
+
+  // User routes ============================
   loginUser: function (user) {
     return axios.post("/api/user/", user, xhrHeader)
   },
