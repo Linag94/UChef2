@@ -8,6 +8,11 @@
     color: white;
     font-size: 40px;
 }
+#landing-form{
+    font-size: 25px;
+    text-align: center;
+    width: 50%;
+}
 
 i{
     margin: 30px;

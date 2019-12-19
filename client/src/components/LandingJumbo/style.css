@@ -2,18 +2,14 @@
     text-align: center;
     clear: both;
     margin-top: 5px;
-    padding-top: 160px;
-    height: 600px;
+    padding: 0px;
+    height: 700px;
     color: white;
     font-size: 40px;
 }
 
 i{
     margin: 30px;
-}
-
-#ecochef-jumbo{
-    font-family: 'Dancing Script', 'cursive';
 }
 
 h1 {
