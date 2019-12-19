@@ -69,8 +69,8 @@ class Landing extends Component {
               <i class="fas fa-leaf"></i>
               
               <h3>Plan. Create. Cook. Responsibly.</h3>
-              <form >
-              <input type="text" id="landing-form" placeholder="Search by Ingredient or Recipe"/>
+              <form method="get" action="/spoonrecipes/:ingredient/:quantity">
+              <input type="text" name="ingredient" id="landing-form" placeholder="Search by Ingredient or Recipe"/>
               </form>
               {/* Add icons. Animate to make them appear in one by one*/}
               <div id="ecochef-jumbo">EcoChef</div>
