@@ -1,0 +1,22 @@
+#panel-jumbo{
+    text-align: center;
+    clear: both;
+    margin-top: 5px;
+    padding: 0px;
+    height: 700px;
+    color: white;
+    font-size: 40px;
+}
+
+i{
+    margin: 30px;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
