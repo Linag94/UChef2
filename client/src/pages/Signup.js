@@ -97,7 +97,7 @@ class Signup extends Component {
                   onChange={this.handleInputChange}
                 >
                   <option href="Veggie">Vegatarian</option>
-                  <option value="Fish">Pescararian</option>
+                  <option value="Fish">Pescatarian</option>
                   <option value="Meat">Open</option>
                   <option value="Low Calorie">Calorie Watching</option>
                 </select>
