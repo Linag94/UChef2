@@ -26,6 +26,7 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("handleform");
     if (this.state.email && this.state.password) {
       API.signup({
         username: this.state.username,
@@ -36,7 +37,7 @@ class Signup extends Component {
         .then(res => {
           if (res.status === 200) {
             // this.props.authenticate();
-            return <Redirect to="/books" />;
+            return <Redirect to="/landing" />;
           }
         })
         .catch(err => console.log(err));
@@ -113,7 +114,7 @@ class Signup extends Component {
           </Col>
         </Row>
         {/* redirect on authenticated */}
-        {this.props.authenticated && <Redirect to="/books" /> }
+        {this.props.authenticated && <Redirect to="/landing" /> }
       </Container>
     );
   }
