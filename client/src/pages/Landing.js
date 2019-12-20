@@ -23,21 +23,25 @@ var planJumboStyle = {
   height: `100%`,
   width: `100%`,
   backgroundSize: `cover`,
-  backgroundPosition: `center`
+  backgroundPosition: `center`,
+  color: `black`,
+  padding: `270px`
 };
 var createJumboStyle = {
   backgroundImage: `url(` + CreateImage + `)`,
   height: `100%`,
   width: `100%`,
   backgroundSize: `cover`,
-  backgroundPosition: `center`
+  backgroundPosition: `center`,
+  padding: `160px`
 };
 var consciousJumboStyle = {
   backgroundImage: `url(` + ConsciousImage + `)`,
   height: `100%`,
   width: `100%`,
   backgroundSize: `cover`,
-  backgroundPosition: `center`
+  backgroundPosition: `center`,
+  padding: `200px`
 };
 
 class Landing extends Component {
@@ -94,23 +98,24 @@ class Landing extends Component {
         <LandingJumbo>
           <div style={planJumboStyle}>
             <h1>Plan</h1>
-
+            <i className="fas fa-columns"></i>
             <h3>Like a calculator. For Food.</h3>
+            
           </div>
         </LandingJumbo>
 
         <LandingJumbo>
           <div style={createJumboStyle}>
             <h1>Create.</h1>
-
+            <i className="far fa-lightbulb"></i>
             <h3>Like a painting canvas. For Food.</h3>
           </div>
 
         </LandingJumbo>
         <LandingJumbo>
           <div style={consciousJumboStyle}>
-            <h1>Conscious.</h1>
-
+            <h1 className="conscious">Consciously.</h1>
+            <i className="fas fa-leaf"></i>
             <h3>Earth takes care of food. Food takes care of you. So let's take care of Earth.</h3>
           </div>
         </LandingJumbo>
