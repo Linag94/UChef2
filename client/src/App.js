@@ -18,7 +18,9 @@ class App extends React.Component {
   }
 
   authenticate = () => authenticateUser()
-    .then(auth => this.setState({authenticated: auth.data.auth, loading:false}, ()=>console.log(this.state)))
+    .then(auth => {
+      console.log(auth)
+      this.setState({authenticated: auth.data, loading:false}, ()=>console.log(this.state))})
     .catch(err => console.log(err))
 
   componentWillMount(){
@@ -44,6 +46,8 @@ class App extends React.Component {
           <Route exact path="/" render={(props) => <Landing {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+          <Route exact path="/landing" render={(props) => <Landing {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+          
           <Route component={NoMatch} />
         </Switch>
       </div>

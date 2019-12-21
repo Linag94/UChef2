@@ -142,7 +142,7 @@ class Landing extends Component {
 
 
         {/* Redirect on authentication */}
-        {this.props.authenticated ? <Redirect to='/books' /> : <div></div>}
+        {this.props.authenticated ? <Redirect to='/landing' /> : <div></div>}
       </Container>
     );
   }

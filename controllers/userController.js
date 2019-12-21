@@ -4,11 +4,13 @@ const db = require("../models");
 module.exports = {
 
   create: function (req, res) {
+    // console.log("user");
     //validate request
     if (req.body.email &&
       req.body.username &&
       req.body.password &&
       req.body.passwordConf) {
+        // console.log("if")
       //create data
       const userData = {
         email: req.body.email,
@@ -18,6 +20,7 @@ module.exports = {
       db.User
         .create(userData)
         .then(dbModel => {
+          // console.log("then")
           // setting the client cookie
           res.cookie("userId", dbModel._id, { expires: new Date(Date.now() + 900000), httpOnly: false })
           // set the session
@@ -43,7 +46,7 @@ module.exports = {
           res.cookie("userId", user._id, { expires: new Date(Date.now() + 900000), httpOnly: false })
           req.session.userId = user._id;
           console.log('redirect');
-          return res.redirect('/books');
+          return res.redirect('/');
         }
       });
     } else {
