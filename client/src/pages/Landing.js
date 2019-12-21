@@ -85,10 +85,11 @@ class Landing extends Component {
 
 
         </MainJumbotron>
-
         {
-          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>, <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
-          // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
+          console.log(this.state.spoonacular),
+          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>)
+          // ,
+          // this.state.spoonacular.map((recipe, i) => <img src="https://spoonacular.com/recipeImages/chicken-spinoccoli-breaded-stuffed-chicken-breast-with-spinach-broccoli-and-cheese-485365.jpg" alt="" className="img-responsive" key={i} />)
         }
 
         <LandingJumbo>
