@@ -62,7 +62,7 @@ class Landing extends Component {
   searchSpoonacular = () => {
     API.getSpoonacularResults(this.state.ingredient, 10)
       .then(results => {
-        this.setState({ spoonacular: results.data.results })
+        this.setState({ spoonacular: results.data.results });
       })
       .catch(err => {
         console.log(err)
@@ -99,7 +99,7 @@ class Landing extends Component {
           <div style={planJumboStyle}>
             <h1>Plan</h1>
             <i className="fas fa-columns"></i>
-            <h3>Like a calculator. For Food.</h3>
+            <h3>A calculator. For Food.</h3>
             
           </div>
         </LandingJumbo>
@@ -108,7 +108,7 @@ class Landing extends Component {
           <div style={createJumboStyle}>
             <h1>Create.</h1>
             <i className="far fa-lightbulb"></i>
-            <h3>Like a painting canvas. For Food.</h3>
+            <h3>A painting canvas. For Food.</h3>
           </div>
 
         </LandingJumbo>

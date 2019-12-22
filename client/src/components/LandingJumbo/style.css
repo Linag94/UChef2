@@ -1,7 +1,10 @@
+body{
+    background-image: url("../../pages/images/food.png");
+}
 #panel-jumbo{
     text-align: center;
     clear: both;
-    margin-top: 5px;
+    margin-top: 2px;
     padding: 0px;
     height: 700px;
     color: white;
