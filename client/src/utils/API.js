@@ -11,7 +11,6 @@ const xhrHeader = {
 export default {
   // Spoonacular routes ============================
   getSpoonacularResults: (id, num) =>{
-    console.log("API folder")
     return axios.get(`/api/spoonacular/spoonrecipes/${id}/${num}`)
   },
   getSpoonacularInstructions: id =>{
