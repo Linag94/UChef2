@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import API from '../utils/API';
 import { Redirect } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Container } from "../components/Grid";
 import MainJumbotron from "../components/MainJumbotron";
 import LandingJumbo from "../components/LandingJumbo";
 import PlanImage from "../pages/images/PlanBG.jpg";
 import CreateImage from "../pages/images/CreateBG.jpg";
 import ConsciousImage from "../pages/images/ConsciousBG.jpg";
-import Wrapper from "../components/Wrapper";
+// import Wrapper from "../components/Wrapper";
 
 
 
@@ -55,6 +55,7 @@ class Landing extends Component {
       [name]: value
     });
   };
+  
   searchSpoonacular = () => {
     API.getSpoonacularResults(this.state.ingredient, 10)
       .then(results => {
@@ -78,18 +79,13 @@ class Landing extends Component {
           <i className="fas fa-leaf"></i>
 
           <h3>Plan. Create. Cook. Responsibly.</h3>
-          <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
-          <button onClick={this.searchSpoonacular}>Search</button>
+      
           {/* Add icons. Animate to make them appear in one by one*/}
           <div id="ecochef-jumbo">EcoChef</div>
 
 
         </MainJumbotron>
 
-        {
-          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>)
-          // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
-        }
 
         <LandingJumbo>
           <div style={planJumboStyle}>

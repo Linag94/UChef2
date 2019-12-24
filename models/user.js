@@ -17,13 +17,17 @@ var UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-  }
+  },
+  savedRecipes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Recipe"
+  }]
 });
 
 //hashing a password before saving it to the database
 UserSchema.pre('save', function (next) {
   var user = this;
-  bcrypt.hash(user.password, 14, function (err, hash){
+  bcrypt.hash(user.password, 14, function (err, hash) {
     if (err) {
       return next(err);
     }
