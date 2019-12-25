@@ -8,8 +8,7 @@ nav{
 }
 
 #login, #signup{
-    font-size: 20px;
-    float: right;
-    width: 300px;
-    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+
