@@ -4,12 +4,13 @@ import "./style.css";
 
 function Jumbotron({ children }) {
   return (
-    <div
-      className="jumbotron" id = "panel-jumbo"
-    >
-      {children}
-    </div>
+
+        <div
+          className="jumbotron" id = "panel-jumbo"
+        >
+          {children}
+        </div>
   );
 }
 
-export default Jumbotron;
+export default Jumbotron; 
