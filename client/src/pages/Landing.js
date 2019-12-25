@@ -59,6 +59,8 @@ class Landing extends Component {
       [name]: value
     });
   };
+
+  //searches Sponacular API for results
   searchSpoonacular = () => {
     API.getSpoonacularResults(this.state.ingredient, 10)
       .then(results => {
@@ -94,6 +96,8 @@ class Landing extends Component {
           this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>)
           // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
         }
+
+
 
         <LandingJumbo>
           <div style={planJumboStyle}>

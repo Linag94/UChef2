@@ -1,14 +1,17 @@
 import React from "react";
 import "./style.css";
 
-function RecipeCard({ props }) {
+function RecipeCard(body, image) {
     return (
-      <div
-        className="jumbotron" id="landing-jumbo"
-      >
-        {props.children}
-      </div>
+  
+      <nav className="card">
+        <img class="card-img-top" src={image} alt="Card image cap"/>
+            <div class="card-body">
+                {body}
+            </div>
+      </nav>
     );
   }
+
 
 export default RecipeCard;
