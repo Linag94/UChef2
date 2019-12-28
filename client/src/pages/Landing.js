@@ -1,21 +1,15 @@
 import React, { Component } from "react";
 import API from '../utils/API';
 import { Redirect } from "react-router-dom";
-import { Container } from "../components/Grid";
+import { Col, Row, Container } from "../components/Grid";
 import MainJumbotron from "../components/MainJumbotron";
 import LandingJumbo from "../components/LandingJumbo";
 import PlanImage from "../pages/images/PlanBG.jpg";
 import CreateImage from "../pages/images/CreateBG.jpg";
 import ConsciousImage from "../pages/images/ConsciousBG.jpg";
-// import Wrapper from "../components/Wrapper";
 
 
 
-// Make sure to import the correct components
-//Components required:
-//Design the navbar
-//Design the jumbotron
-//Design the landing page layout
 
 //Styles for each Landing Jumbotron
 var planJumboStyle = {
@@ -60,9 +54,7 @@ class Landing extends Component {
     });
   };
 
-
-  //searches Sponacular API for results
-
+  //function
   searchSpoonacular = () => {
     API.getSpoonacularResults(this.state.ingredient, 10)
       .then(results => {
@@ -86,12 +78,20 @@ class Landing extends Component {
           <i className="fas fa-leaf"></i>
 
           <h3>Plan. Create. Cook. Responsibly.</h3>
-      
+          <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
+          <button onClick={this.searchSpoonacular} id="landing-search-btn">Search</button>
           {/* Add icons. Animate to make them appear in one by one*/}
           <div id="ecochef-jumbo">EcoChef</div>
 
 
         </MainJumbotron>
+
+
+
+        {
+          this.state.spoonacular.map((recipe, i) => <p key={i + '-recipe'}>{recipe.title}</p>)
+          // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
+        }
 
 
 
@@ -121,7 +121,6 @@ class Landing extends Component {
           </div>
         </LandingJumbo>
 
-
         {/* <form>
               <Input
                 value={this.state.email}
@@ -147,8 +146,9 @@ class Landing extends Component {
 
 
         {/* Redirect on authentication */}
-        {this.props.authenticated ? <Redirect to='/landing' /> : <div></div>}
+        {this.props.authenticated ? <Redirect to='/books' /> : <div></div>}
       </Container>
+
     );
   }
 }

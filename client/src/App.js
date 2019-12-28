@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import {/* getCookie, */ authenticateUser} from "./utils/handleSessions";
 
 
@@ -52,6 +53,7 @@ class App extends React.Component {
 
           <Route component={NoMatch} />
         </Switch>
+        <Footer></Footer>
       </div>
     </Router>
   )}
