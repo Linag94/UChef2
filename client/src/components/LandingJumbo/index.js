@@ -9,6 +9,7 @@ function Jumbotron({ children }) {
           className="jumbotron" id = "panel-jumbo"
         >
           {children}
+          
         </div>
   );
 }

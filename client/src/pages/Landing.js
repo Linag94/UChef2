@@ -10,14 +10,6 @@ import ConsciousImage from "../pages/images/ConsciousBG.jpg";
 
 
 
-
-
-// Make sure to import the correct components
-//Components required:
-//Design the navbar
-//Design the jumbotron
-//Design the landing page layout
-
 //Styles for each Landing Jumbotron
 var planJumboStyle = {
   backgroundImage: `url(` + PlanImage + `)`,
@@ -86,7 +78,7 @@ class Landing extends Component {
 
           <h3>Plan. Create. Cook. Responsibly.</h3>
           <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
-          <button onClick={this.searchSpoonacular}>Search</button>
+          <button onClick={this.searchSpoonacular} id="landing-search-btn">Search</button>
           {/* Add icons. Animate to make them appear in one by one*/}
           <div id="ecochef-jumbo">EcoChef</div>
 

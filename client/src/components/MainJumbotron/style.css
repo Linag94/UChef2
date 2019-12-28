@@ -1,3 +1,8 @@
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ } 
+
 #landing-jumbo{
     text-align: center;
     background-image: url("./backgroundLanding.jpg");
@@ -12,10 +17,14 @@
     font-size: 25px;
     text-align: center;
     width: 50%;
+    margin-right: 5px;
+    border-radius: 10px;
 }
 
 i{
     margin: 30px;
+    animation-name: fadeIn;
+    animation-duration: 6s;
 }
 
 #ecochef-jumbo{
@@ -24,9 +33,19 @@ i{
 
 h1 {
     font-size: 70px;
+    animation-name: fadeIn;
+    animation-duration: 6s;
 }
 
 h3 {
     font-size: 40px;
+    animation-name: fadeIn;
+    animation-duration: 6s;
 }
+
+#landing-search-btn{
+    font-size:27px;
+    border-radius: 10px;
+}
+
 
