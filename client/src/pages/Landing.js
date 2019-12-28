@@ -10,6 +10,7 @@ import ConsciousImage from "../pages/images/ConsciousBG.jpg";
 
 
 
+
 //Styles for each Landing Jumbotron
 var planJumboStyle = {
   backgroundImage: `url(` + PlanImage + `)`,
@@ -120,7 +121,6 @@ class Landing extends Component {
           </div>
         </LandingJumbo>
 
-
         {/* <form>
               <Input
                 value={this.state.email}
@@ -148,6 +148,7 @@ class Landing extends Component {
         {/* Redirect on authentication */}
         {this.props.authenticated ? <Redirect to='/books' /> : <div></div>}
       </Container>
+
     );
   }
 }
