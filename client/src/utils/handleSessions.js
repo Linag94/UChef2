@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import API from './API';
+import axios from "axios";
 
 export const getCookie = () => {
   const cookie = Cookies.get('userId')
@@ -13,5 +14,6 @@ export const authenticateUser = () => {
   }
   
 export const logOut = () => {
-  Cookies.remove()
+  // Cookies.remove()
+  return axios.get('/api/user/logout')
 }

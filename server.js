@@ -13,7 +13,11 @@ var session = require('express-session')
 app.use(morgan("dev"));
 
 //use sessions for tracking logins
-app.use(session({secret: 'keyboard cat', cookie:{}}));
+app.use(session({
+  secret: 'keyboard cat', 
+  cookie:{httpOnly: false, maxAge: 1000 * 60 * 60 * 24},
+  name:'__id'
+}));
 
 
 // Define middleware here
