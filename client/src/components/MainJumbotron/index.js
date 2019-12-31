@@ -1,8 +1,7 @@
 import React from "react";
-import bgimage from './backgroundLanding.jpg';
 import "./style.css";
 
-function Jumbotron({ children }) {
+function MainJumbotron({ children }) {
   return (
     <div
       className="jumbotron" id="landing-jumbo"
@@ -12,4 +11,4 @@ function Jumbotron({ children }) {
   );
 }
 
-export default Jumbotron;
+export default MainJumbotron;

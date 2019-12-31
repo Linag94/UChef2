@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Books from "./pages/Books";
 import Login from "./pages/Login";
 import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
+import Dashboard from "./pages/Dashboard";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import {/* getCookie, */ authenticateUser} from "./utils/handleSessions";
 
 
@@ -19,7 +20,9 @@ class App extends React.Component {
   }
 
   authenticate = () => authenticateUser()
-    .then(auth => this.setState({authenticated: auth.data.auth, loading:false}, ()=>console.log(this.state)))
+    .then(auth => {
+      console.log(auth)
+      this.setState({authenticated: auth.data, loading:false}, ()=>console.log(this.state))})
     .catch(err => console.log(err))
 
   componentWillMount(){
@@ -45,9 +48,12 @@ class App extends React.Component {
           <Route exact path="/" render={(props) => <Landing {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
-          <this.PrivateRoute exact path="/books" component={Books} />
+          <Route exact path="/landing" render={(props) => <Landing {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+          <Route exact path="/dashboard" render={(props) => <Dashboard {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+
           <Route component={NoMatch} />
         </Switch>
+        <Footer></Footer>
       </div>
     </Router>
   )}

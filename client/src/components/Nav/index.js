@@ -3,19 +3,24 @@ import "./style.css";
 
 function Nav() {
   return (
-
     <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-      <a className="nav-title-uchef" href="/">
-        EcoChef
 
-      </a>
-    <span className="btn" id="signup" role="button" tabIndex="0">
-      <a href="/signup">Sign Up</a>
-    </span>
-    <span className="btn" id="login" role="button" tabIndex="0">
-      <a href="/login">Login</a>
-    </span>
+            <a className="nav-title-uchef" href="/">
+              EcoChef
+            </a>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="signup" href="/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="login" href="/login">Login</a>
+            </li>
+        </ul>
+    </div>
     </nav>
+
   );
 }
 

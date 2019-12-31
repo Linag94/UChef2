@@ -4,7 +4,7 @@ import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -22,6 +22,7 @@ class Login extends Component {
   };
 
   handleFormSubmit = event => {
+    // console.log("userlogin");
     event.preventDefault();
     if (this.state.email && this.state.password) {
       API.loginUser({
@@ -31,7 +32,7 @@ class Login extends Component {
         .then(res => {
           if (res.status === 200) {
             this.props.authenticate();
-            return <Redirect to="/books" />;
+            return <Redirect to="/" />;
           }
         })
         .catch(err => console.log(err));
@@ -70,15 +71,13 @@ class Login extends Component {
                 Login
               </FormBtn>
 
-              <Link to="/signup">
-                <FormBtn>New User</FormBtn>
-              </Link>
+            
             </form>
           </Col>
         </Row>
 
         {/* Redirect on authentication */}
-        {this.props.authenticated ? <Redirect to="/books" /> : <div></div>}
+        {this.props.authenticated ? <Redirect to="/" /> : <div></div>}
       </Container>
     );
   }

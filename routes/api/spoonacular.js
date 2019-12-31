@@ -1,11 +1,10 @@
 const router = require("express").Router();
 var axios = require("axios");
-const { Recipes } = require('../../models')
-const { Instructions } = require('../../models')
-const { Ingredients } = require('../../models')
+const { Instructions, Ingredients, Recipes, User } = require('../../models')
 
 
 router.get("/spoonrecipes/:ingredient/:quantity", async (req, res) => {
+    console.log("Spoonacular api route")
     try {
         const results = await axios.get("https://api.spoonacular.com/recipes/search?query=" + req.params.ingredient + "&number=" + req.params.quantity + "&apiKey=" + process.env.SPOONACULAR_API);
         if (results.status !== 200)
@@ -23,7 +22,7 @@ router.get("/spoonrecipes/:ingredient/:quantity", async (req, res) => {
         res.json(results.data)
 
     } catch (error) {
-        res.sendStatus(404)
+        res.sendStatus(error)
     }
 })
 
@@ -45,7 +44,7 @@ router.get("/spooninstructions/:id", async (req, res) => {
         res.json(results.data[0].steps)
 
     } catch (error) {
-        res.sendStatus(404)
+        res.sendStatus(error)
     }
 })
 
