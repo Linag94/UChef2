@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var mongoose = require("mongoose");
+var bcrypt = require("bcrypt");
 
 var UserSchema = new mongoose.Schema({
   email: {
@@ -16,45 +16,74 @@ var UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
-  savedRecipes: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Recipe"
-  }]
+  savedRecipes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recipe"
+    }
+  ]
 });
 
+UserSchema.methods = {
+  hashPassword: plainText => bcrypt.hashSync(plainText, 14),
+  checkPassword: inputPassword =>
+    bcrypt.compareSync(inputPassword, this.password)
+};
+
 //hashing a password before saving it to the database
-UserSchema.pre('save', function (next) {
-  var user = this;
-  bcrypt.hash(user.password, 14, function (err, hash) {
-    if (err) {
-      return next(err);
-    }
-    user.password = hash;
+UserSchema.pre("save", function(next) {
+  console.log("IN BCRYPT");
+  if (!this.password) {
+    console.log("NO PASWORD PROVIDED");
     next();
-  })
+  } else {
+    console.log("HASH SUCCESS");
+    this.password = this.hashPassword(this.password);
+    next();
+  }
+  // var user = this;
+  // bcrypt.hash(user.password, 14, function (err, hash) {
+  //   if (err) {
+  //     return next(err);
+  //   }
+  //   user.password = hash;
+  //   next();
+  // })
 });
 
 //authenticate input against database
-UserSchema.statics.authenticate = function (email, password, callback) {
-  User.findOne({ email: email })
-    .exec(function (err, user) {
-      if (err) {
-        return callback(err)
-      } else if (!user) {
-        var err = new Error('User not found.');
-        err.status = 401;
-        return callback(err);
+UserSchema.statics.authenticate = (email, password, callback) => {
+  User.findOne({ email: email }).exec((err, user) => {
+    if (err) {
+      return callback(err);
+    }
+    if (!user) {
+      var err = new Error("User not found.");
+      err.status = 401;
+      return callback(err);
+    }
+
+    // if (!localThis.checkPassword(password, user.password)) {
+    //   console.log("PASSWORD DOES NOT MATCH!");
+    //   return callback("PASSWORD DOES NOT MATCH!");
+    // }
+
+    // console.log("COMPARE MATCH");
+    // return callback(null, user);
+
+    console.log(user)
+    bcrypt.compareSync(password, user.password, function(err, result) {
+      console.log(err, result)
+      if (result === true) {
+        console.log("COMPARE MATCHES");
+        return callback(null, user);
+      } else {
+        return callback();
       }
-      bcrypt.compare(password, user.password, function (err, result) {
-        if (result === true) {
-          return callback(null, user);
-        } else {
-          return callback();
-        }
-      })
     });
-}
-var User = mongoose.model('User', UserSchema);
+  });
+};
+var User = mongoose.model("User", UserSchema);
 module.exports = User;

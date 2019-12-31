@@ -12,7 +12,8 @@ class Signup extends Component {
     password: "",
     passwordConf: "",
     servingSize: "",
-    mealPreferance: ""
+    mealPreferance: "",
+    redirect: false
   };
 
   componentDidMount() {}
@@ -35,9 +36,10 @@ class Signup extends Component {
         passwordConf: this.state.passwordConf
       })
         .then(res => {
+          console.log(res);
           if (res.status === 200) {
             // this.props.authenticate();
-            return <Redirect to="/landing" />;
+            this.setState({ redirect: true });
           }
         })
         .catch(err => console.log(err));
@@ -47,6 +49,9 @@ class Signup extends Component {
   render() {
     return (
       <Container fluid>
+        {this.state.redirect && <Redirect to="/landing" />}
+        {/* redirect on authenticated */}
+        {this.props.authenticated && <Redirect to="/landing" />}
         <Row>
           <Col size="12">
             <form>
@@ -106,15 +111,14 @@ class Signup extends Component {
 
               <FormBtn
                 // disabled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSubmit}
+                onClick={() => this.handleFormSubmit}
               >
                 Signup
               </FormBtn>
             </form>
           </Col>
         </Row>
-        {/* redirect on authenticated */}
-        {this.props.authenticated && <Redirect to="/landing" /> }
+        
       </Container>
     );
   }
