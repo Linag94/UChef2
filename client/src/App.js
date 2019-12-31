@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from 'js-cookie';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./pages/Login";
 import Landing from "./pages/Landing";
@@ -9,12 +10,10 @@ import Dashboard from "./pages/Dashboard";
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import {/* getCookie, */ authenticateUser} from "./utils/handleSessions";
+import {/* getCookie, */ authenticateUser, logOut} from "./utils/handleSessions";
 
 
 class App extends React.Component {
-  // check cookie
-  // getCookie();
 
   state = {
     authenticated: false,
@@ -24,7 +23,18 @@ class App extends React.Component {
   authenticate = () => authenticateUser()
     .then(auth => {
       console.log(auth)
-      this.setState({authenticated: auth.data, loading:false}, ()=>console.log(this.state))})
+      this.setState({authenticated: auth.data, loading:false}, ()=>console.log(this.state))
+    })
+    .catch(data => {
+      if(data.response.status === 401) this.setState({authenticated: false, loading:false}, ()=>console.log(this.state))
+      console.log(data)
+    })
+
+  logout = () => logOut()
+    .then(res => {
+      Object.keys(Cookies.get()).forEach(cookieName => Cookies.remove(cookieName));
+      this.authenticate()
+    })
     .catch(err => console.log(err))
 
   componentWillMount(){
@@ -45,7 +55,7 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Nav />
+        <Nav logout={this.logout}/>
         <Switch>
           <Route exact path="/" render={(props) => <Landing {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />

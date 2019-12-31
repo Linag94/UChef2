@@ -10,6 +10,10 @@ router.route("/authenticate")
   .post(userController.authenticate);
   
 // Matches with "/api/user"
+router.route("/logout")
+  .get(userController.logout);
+
+// Matches with "/api/user"
 router.route("/")
   .post(userController.login);
 

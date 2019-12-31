@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   create: function(req, res) {
-    console.log("user");
     //validate request
     if (
       req.body.email &&
@@ -11,7 +10,6 @@ module.exports = {
       req.body.password &&
       req.body.passwordConf
     ) {
-      console.log("if");
       //create data
       const userData = {
         email: req.body.email,
@@ -20,15 +18,9 @@ module.exports = {
       };
       db.User.create(userData)
         .then(dbModel => {
-          console.log("then");
           // setting the client cookie
-          req.session.userId = dbModel._id;
-          return res.cookie("userId", dbModel._id, {
-            expires: new Date(Date.now() + 900000),
-            httpOnly: false
-          });
-          // set the session
-          // return res.json(dbModel);
+          req.session.user = dbModel;
+          return res.json(dbModel);
         })
         .catch(err => {
           console.log(err);
@@ -45,23 +37,16 @@ module.exports = {
 
     //validate request
     if (req.body.email && req.body.password) {
-      db.User.authenticate(req.body.email, req.body.password, function(
-        error,
-        user
-      ) {
+      db.User.authenticate(req.body.email, req.body.password, function(error,user) {
         if (error || !user) {
+          console.log('err')
           var err = new Error("Wrong email or password.");
           err.status = 401;
           return next(err);
         } else {
-          console.log(`login: `, user._id);
-          req.session.userId = user._id;
-          return res.cookie("userId", user._id, {
-            expires: new Date(Date.now() + 900000),
-            httpOnly: false
-          }).send("Hello!");
-          // console.log("redirect");
-          // return res.redirect("/landing");
+          console.log(`login in user: `);
+          req.session.user = user;
+          return res.json(req.session.user);
         }
       });
     } else {
@@ -79,22 +64,20 @@ module.exports = {
         4
       )}`
     );
-    db.User.findById(req.session.userId).exec(function(error, user) {
-      if (error) {
-        return next(error);
-      } else {
-        if (user === null) {
-          //  return res.cookie('userId','').status(401);
-          return res.send(false);
-        } else {
-          return res.cookie("userId", user._id, {
-            expires: new Date(Date.now() + 900000),
-            httpOnly: false
-          });
-          // return res.json(true);
-          // return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
-        }
-      }
-    });
+    if(!req.session.user) return res.status(401).json("please log in")
+    return res.json(req.session.user);
+  },
+  logout: function(req, res, next) {
+    console.log(
+      `req.session/userController:authenticate ${JSON.stringify(
+        req.session,
+        null,
+        4
+      )}`
+    );
+    req.session.destroy(err =>{
+      if (err) res.status(422).json(err);
+      res.json('logged out')
+    })
   }
 };

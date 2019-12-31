@@ -38,8 +38,8 @@ class Signup extends Component {
         .then(res => {
           console.log(res);
           if (res.status === 200) {
-            // this.props.authenticate();
-            this.setState({ redirect: true });
+            this.props.authenticate();
+            // this.setState({ redirect: true });
           }
         })
         .catch(err => console.log(err));
@@ -49,7 +49,7 @@ class Signup extends Component {
   render() {
     return (
       <Container fluid>
-        {this.state.redirect && <Redirect to="/landing" />}
+        {/* {this.state.redirect && <Redirect to="/landing" />} */}
         {/* redirect on authenticated */}
         {this.props.authenticated && <Redirect to="/landing" />}
         <Row>
@@ -111,7 +111,7 @@ class Signup extends Component {
 
               <FormBtn
                 // disabled={!(this.state.email && this.state.password)}
-                onClick={() => this.handleFormSubmit}
+                onClick={this.handleFormSubmit}
               >
                 Signup
               </FormBtn>

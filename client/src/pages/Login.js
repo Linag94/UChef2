@@ -22,7 +22,6 @@ class Login extends Component {
   };
 
   handleFormSubmit = event => {
-    // console.log("userlogin");
     event.preventDefault();
     if (this.state.email && this.state.password) {
       API.loginUser({

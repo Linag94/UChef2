@@ -70,17 +70,17 @@ UserSchema.statics.authenticate = (email, password, callback) => {
     //   return callback("PASSWORD DOES NOT MATCH!");
     // }
 
-    // console.log("COMPARE MATCH");
     // return callback(null, user);
 
-    console.log(user)
-    bcrypt.compareSync(password, user.password, function(err, result) {
+    bcrypt.compare(password, user.password, function(err, result) {
+      console.log("in COMPARE");
+
       console.log(err, result)
       if (result === true) {
         console.log("COMPARE MATCHES");
         return callback(null, user);
       } else {
-        return callback();
+        return callback(new Error("no match"));
       }
     });
   });
