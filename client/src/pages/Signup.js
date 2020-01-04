@@ -51,7 +51,7 @@ class Signup extends Component {
       <Container fluid>
         {/* {this.state.redirect && <Redirect to="/landing" />} */}
         {/* redirect on authenticated */}
-        {this.props.authenticated && <Redirect to="/landing" />}
+        {this.props.authenticated && <Redirect to="/Dashboard" />}
         <Row>
           <Col size="12">
             <form>
