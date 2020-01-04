@@ -19,7 +19,10 @@ export default {
   getSpoonacularIngredients: id =>{
     return axios.get(`/api/spoonacular/spooningredients/${id}`)
   },
-  updateRecipeById: id=> axios.put("/api/recipes/" + id),
+  updateUserByRecipeId: (id, recipeID) => axios.put("/api/user/"+id, {
+    id: id, 
+    recipeID: recipeID
+  }),
   
   // Recipes routes ============================
   getRecipes: ()=> axios.get("/api/ingredients"),
