@@ -76,7 +76,9 @@ class Login extends Component {
         </Row>
 
         {/* Redirect on authentication */}
+
         {this.props.authenticated ? <Redirect to="/dashboard" /> : <div></div>}
+
       </Container>
     );
   }
