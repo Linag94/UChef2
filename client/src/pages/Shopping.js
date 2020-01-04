@@ -94,34 +94,16 @@ class Landing extends Component {
     return (
       <Container fluid>
 
-        <div>
 
-          {
-            this.state.spoonacular.map((card, i) =>
-
-              <RecipeCard
-                key={i + "- recipe"}
-                card={card}
-                viewHideInstructions={this.viewHideInstructions}
-                searchIngredients={this.searchIngredients}
-                searchInstructions={this.searchInstructions}
-
-              />)
-          }
-        </div>
 
         <MainJumbotron>
-          <h1>The Chef Has Arrived</h1>
+          <h1>Shopping List</h1>
 
           <i className="fas fa-columns"></i>
           <i className="far fa-lightbulb"></i>
           <i className="fas fa-carrot"></i>
           <i className="fas fa-leaf"></i>
 
-          <h3>TESTING TO SEE IF THIS WORKS</h3>
-          <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
-          <button onClick={this.searchSpoonacular} >Search</button>
-          {/* Add icons. Animate to make them appear in one by one*/}
           <div id="ecochef-jumbo">EcoChef</div>
 
         </MainJumbotron>

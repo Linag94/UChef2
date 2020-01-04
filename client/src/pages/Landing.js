@@ -35,6 +35,17 @@ var consciousJumboStyle = {
   padding: `200px`
 };
 
+var infoStyle = {
+  backgroundColor: `rgb(255,255,255, 0.7)`,
+  height: `100%`,
+  width: `100%`,
+  backgroundSize: `cover`,
+  backgroundPosition: `center`,
+  padding: `160px`,
+  fontSize: `25px`,
+  color: `black`
+}
+
 class Landing extends Component {
   state = {
     ingredient: "",
@@ -93,30 +104,50 @@ class Landing extends Component {
         ))
         // this.state.spoonacular.map((recipe, i) => <img src={recipe.imgURL} alt="" className="img-responsive" key={i} />)
         }
+        <Row>
+          <Col size="md-6">
+            <LandingJumbo>
+              <div style={planJumboStyle}>
+                <h1>Plan</h1>
+                <i className="fas fa-columns"></i>
+              </div>
+            </LandingJumbo>
+          </Col>
+          <Col size="md-6">
+            <LandingJumbo>
+            <div style={infoStyle}>
+              <h3>Cooking requires a lot of planning, but we can help!</h3>
+              <br></br>
+              <article> Automatically add ingredients from your favorite recipes to your shopping list.</article>
+            </div>
+          </LandingJumbo>
+          </Col>
+        </Row>
 
-        <LandingJumbo>
-          <div style={planJumboStyle}>
-            <h1>Plan</h1>
-            <i className="fas fa-columns"></i>
-            <h3>A calculator. For Food.</h3>
-          </div>
-        </LandingJumbo>
+        <Row>
+          <Col size="md-6">
+            <LandingJumbo>
+              <div style={infoStyle}>
+                <h1>Some information here.</h1>
+                <i className="far fa-lightbulb"></i>
+              </div>
+            </LandingJumbo>
+          </Col>
+          <Col size="md-6">
+            <LandingJumbo>
+            <div style={createJumboStyle}>
+              <h1>Create.</h1>
+              <i className="far fa-lightbulb"></i>
+            </div>
+          </LandingJumbo>
+          </Col>
+        </Row>
 
-        <LandingJumbo>
-          <div style={createJumboStyle}>
-            <h1>Create.</h1>
-            <i className="far fa-lightbulb"></i>
-            <h3>A painting canvas. For Food.</h3>
-          </div>
-        </LandingJumbo>
+
         <LandingJumbo>
           <div style={consciousJumboStyle}>
             <h1 className="conscious">Consciously.</h1>
             <i className="fas fa-leaf"></i>
-            <h3>
-              Earth takes care of food. Food takes care of you. So let's take
-              care of Earth.
-            </h3>
           </div>
         </LandingJumbo>
 
