@@ -6,7 +6,7 @@ function Jumbotron({ children }) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-12">
+        <div className="col-md-6">
         {/* <div
           className="jumbotron" id = "panel-jumbo"
         > */}
