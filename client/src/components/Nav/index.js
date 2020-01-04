@@ -21,7 +21,7 @@ function Nav(props) {
             </li>
             <li>
               <Button onClick={props.logout}>
-                logout
+                Logout
               </Button>
             </li>
         </ul>
