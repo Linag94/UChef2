@@ -5,13 +5,30 @@ function Footer({ children }) {
   return (
     <footer className="footer mt-auto py-3" id="footer">
         <div className="container">
-            <h2>Where to Find Us</h2>
-            <ul id="footer-list">
-                <li>Instagram</li>
-                <li>Facebook</li>
-                <li>LinkedIn</li>
-                <li>Twitter</li>
-            </ul>
+            <div className="container">
+                <div className="row">
+                    {/* First footer column */}
+                    <div className="col-md-6">
+                        <h2>Where to Find Us</h2>
+                        <ul id="footer-list">
+                            <li>Instagram</li>
+                            <li>Facebook</li>
+                            <li>LinkedIn</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </div>
+                    {/* Second Footer Column */}
+                    <div className="col-md-6">
+                        <h2>About EcoChef</h2>
+                        <ul id="footer-list">
+                            <li>About the Creators</li>
+                            <li>Facebook</li>
+                            <li>LinkedIn</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
     
