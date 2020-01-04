@@ -73,7 +73,7 @@ class Landing extends Component {
           <i className="fas fa-leaf"></i>
 
           <h3>Plan. Create. Cook. Responsibly.</h3>
-          <input
+          {/* <input
             type="text"
             name="ingredient"
             onChange={this.handleInputChange}
@@ -83,7 +83,7 @@ class Landing extends Component {
           />
           <button onClick={this.searchSpoonacular} id="landing-search-btn">
             Search
-          </button>
+          </button> */}
           {/* Add icons. Animate to make them appear in one by one*/}
           <div id="ecochef-jumbo">EcoChef</div>
         </MainJumbotron>
