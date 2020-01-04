@@ -12,15 +12,22 @@ function Nav(props) {
 
     {/* <div class="navbar-collapse collapse w-100 order-3 dual-collapse2"> */}
     <div class="">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" id="signup" href="/signup">Sign Up</a>
+        <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item"> 
+              <a class="nav-link" id="login" href="/shoppinglist">Shopping List</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="login" href="/login">Login</a>
+                <a class="nav-link" id="login" href="/cookbook">Cookbook</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" id="signup" href="/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style={{color: "black"}} id="login" href="/login">Login</a>
             </li>
             <li>
-              <Button onClick={props.logout}>
+              <Button onClick={props.logout} style={{color: "black"}}>
                 Logout
               </Button>
             </li>

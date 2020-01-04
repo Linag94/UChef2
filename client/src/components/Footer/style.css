@@ -15,7 +15,7 @@ html {
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%; */
-    margin: 0 0 180px;
+    margin: 0 0 200px;
     /* bottom = footer height */
     /* padding: 25px; */
   }
@@ -24,11 +24,15 @@ html {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 170px;
+    height: 190px;
     width: 100%;
     overflow: hidden;
     color: white;
 }
-#footer-list{
+.footer-list{
     list-style-type: none;
+    float: none;
+}
+.footer-icon{
+    font-size: 30px;
 }
