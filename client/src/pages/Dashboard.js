@@ -90,6 +90,26 @@ class Landing extends Component {
       })
   }
 
+  
+  // save recipe for user
+  saveRecipe = (id) => {
+    API.updateRecipeById(id)
+      .then(results => {
+        this.setState({
+          spoonacular: this.state.spoonacular.map(x => {
+            if (x.id === id) {
+              return ({ ...x, instructions: results.data, selected: true })
+            }
+            return x
+          })
+        }, () => console.log(this.state))
+
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   render() {
     return (
       <Container fluid>
@@ -121,6 +141,7 @@ class Landing extends Component {
                 viewHideInstructions={this.viewHideInstructions}
                 searchIngredients={this.searchIngredients}
                 searchInstructions={this.searchInstructions}
+                saveRecipe={this.saveRecipe}
 
               />)
           }

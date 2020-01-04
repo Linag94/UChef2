@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 function RecipeCard(props) {
-    const { card, searchIngredients, searchInstructions, viewHideInstructions } = props;
+    const { card, searchIngredients, searchInstructions, viewHideInstructions, saveRecipe } = props;
     return (
 
         <div className="card" >
@@ -53,7 +53,7 @@ function RecipeCard(props) {
             <button className="Ingredientsbtn" onClick={() => searchIngredients(card.id)}> View Ingredients </button>
             <button className="Instructionsbtn" onClick={() => searchInstructions(card.id)}> View Instructions </button>
 
-            {/* <div id="save-recipe"> Save to cookbook </div> */}
+            <button className="SaveRecipe" onClick={() => saveRecipe(card.id)}> Save Recipe </button>
 
         </div>
 
