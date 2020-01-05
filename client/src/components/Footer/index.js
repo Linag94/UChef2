@@ -10,21 +10,24 @@ function Footer({ children }) {
                     {/* First footer column */}
                     <div className="col-md-6">
                         <h2>Where to Find Us</h2>
-                        <ul id="footer-list">
-                            <li>Instagram</li>
-                            <li>Facebook</li>
-                            <li>LinkedIn</li>
-                            <li>Twitter</li>
-                        </ul>
                     </div>
                     {/* Second Footer Column */}
                     <div className="col-md-6">
                         <h2>About EcoChef</h2>
-                        <ul id="footer-list">
-                            <li>What is EcoChef?</li>
+                    </div>
+                </div>
+                <div className="row">
+                    {/* First footer column */}
+                    <div className="col-md-6">
+                        <ul className="footer-list">
+                            <li><a class="fab fa-instagram footer-icon" ></a></li>
+                            <li><a class="fab fa-facebook footer-icon"></a></li>
+                        </ul>
+                    </div>
+                    {/* Second Footer Column */}
+                    <div className="col-md-6">
+                        <ul className="footer-list">
                             <li>Meet the Team</li>
-                            <li>LinkedIn</li>
-                            <li>Twitter</li>
                         </ul>
                     </div>
                 </div>

@@ -51,6 +51,18 @@ class Landing extends Component {
     })
   }
 
+  viewHideIngregients = id => {
+    this.setState({
+      spoonacular: this.state.spoonacular.map(x => {
+        if (x.id === id) {
+          return ({ ...x, selected: !x.selected })
+        }
+        return x
+      })
+    })
+  }
+  
+
   // get ingredients
   searchIngredients = (id) => {
     API.getSpoonacularIngredients(id)
@@ -90,6 +102,18 @@ class Landing extends Component {
       })
   }
 
+  
+  // save recipe for user
+  saveUserRecipe = (id, recipeID) => {
+    API.updateUserByRecipeId(id, recipeID)
+      .then(results => {
+        console.log(results)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   render() {
     return (
       <Container fluid>
@@ -106,7 +130,7 @@ class Landing extends Component {
           <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
           <button onClick={this.searchSpoonacular} >Search</button>
           {/* Add icons. Animate to make them appear in one by one*/}
-          <div id="ecochef-jumbo">EcoChef</div>
+          {/* <div id="ecochef-jumbo">EcoChef</div> */}
 
         </MainJumbotron>
 
@@ -119,8 +143,11 @@ class Landing extends Component {
                 key={i + "- recipe"}
                  card={card}
                 viewHideInstructions={this.viewHideInstructions}
+                viewHideIngregients={this.viewHideIngregients}
                 searchIngredients={this.searchIngredients}
                 searchInstructions={this.searchInstructions}
+                saveUserRecipe={this.saveUserRecipe}
+                authenticated={this.props.authenticated}
 
               />)
           }

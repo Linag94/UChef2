@@ -19,12 +19,15 @@ export default {
   getSpoonacularIngredients: id =>{
     return axios.get(`/api/spoonacular/spooningredients/${id}`)
   },
+  updateUserByRecipeId: (id, recipeID) => axios.put("/api/user/"+id, {
+    id: id, 
+    recipeID: recipeID
+  }),
   
   // Recipes routes ============================
   getRecipes: ()=> axios.get("/api/ingredients"),
   addRecipe: data => axios.post("/api/ingredients", data),
   findRecipeById: id=> axios.get("/api/ingredients/" + id),
-  updateRecipeById: id=> axios.put("/api/ingredients/" + id),
   deleteRecipetById: id => axios.delete("/api/ingredients/" + id),
   
   // Instructions routes ============================

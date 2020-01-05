@@ -2,7 +2,7 @@ const db = require("../models");
 
 // Defining methods for the booksController
 module.exports = {
-  create: function(req, res) {
+  create: function (req, res) {
     //validate request
     if (
       req.body.email &&
@@ -32,12 +32,12 @@ module.exports = {
     }
   },
 
-  login: function(req, res, next) {
+  login: function (req, res, next) {
     console.log("login");
 
     //validate request
     if (req.body.email && req.body.password) {
-      db.User.authenticate(req.body.email, req.body.password, function(error,user) {
+      db.User.authenticate(req.body.email, req.body.password, function (error, user) {
         if (error || !user) {
           console.log('err')
           var err = new Error("Wrong email or password.");
@@ -56,7 +56,7 @@ module.exports = {
     }
   },
 
-  authenticate: function(req, res, next) {
+  authenticate: function (req, res, next) {
     console.log(
       `req.session/userController:authenticate ${JSON.stringify(
         req.session,
@@ -64,10 +64,10 @@ module.exports = {
         4
       )}`
     );
-    if(!req.session.user) return res.status(401).json("please log in")
+    if (!req.session.user) return res.status(401).json("please log in")
     return res.json(req.session.user);
   },
-  logout: function(req, res, next) {
+  logout: function (req, res, next) {
     console.log(
       `req.session/userController:authenticate ${JSON.stringify(
         req.session,
@@ -75,9 +75,25 @@ module.exports = {
         4
       )}`
     );
-    req.session.destroy(err =>{
+    req.session.destroy(err => {
       if (err) res.status(422).json(err);
       res.json('logged out')
     })
-  }
+  },
+  update: function (req, res) {
+    // console.log(req.body.id, req.body.recipeID)
+    db.User
+      .findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $push:
+            { savedRecipes: req.body.recipeID }
+        })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+
+
+
 };
