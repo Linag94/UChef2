@@ -2,37 +2,34 @@ const db = require("../models");
 
 // Defining methods for the cookbookController
 module.exports = {
-  findAll: function(req, res) {
-    db.Cookbook
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err))
-
-    },
     findById: function(req, res) {
-      db.Cookbook
+      function mapPromises(savedRecipes) {
+        return Promise.all (
+          savedRecipes.map(async spoonId => {
+            const recipePromises = [
+              db.Recipes.find({spoonRecipeID: spoonId}),
+              db.Ingredients.find({spoonRecipeID: spoonId}), 
+              db.Instructions.find({spoonRecipeID: spoonId})
+              ];
+         return Promise.all (recipePromises) 
+           
+            // .then(recipeArry => recipeArry)
+          })
+        )
+      }
+      console.log(req.params);
+      db.User
         .findById(req.params.id)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    create: function(req, res) {
-      db.Cookbook
-        .create(req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    update: function(req, res) {
-      db.Cookbook
-        .findOneAndUpdate({ _id: req.params.id }, req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    remove: function(req, res) {
-      db.Cookbook
-        .findById({ _id: req.params.id })
-        .then(dbModel => dbModel.remove())
-        .then(dbModel => res.json(dbModel))
+         .then(dbModel =>{
+             mapPromises (dbModel.savedRecipes)
+                .then(data =>{
+                  res.json(data)
+                  console.log(JSON.stringify({obj: data}, null, 2))
+                  }
+                  )
+        
+        
+        })
         .catch(err => res.status(422).json(err));
     }
   };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+import {getUserCookBook} from "../utils/API";
 import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import MainJumbotron from "../components/MainJumbotron";
@@ -43,9 +43,7 @@ class CookBook extends Component {
 
   componentDidMount() {
     // call api recipes
-        // assign data to recipes state
-            // call api ing
-            // call api ins
+     getUserCookBook   
 
   }
 

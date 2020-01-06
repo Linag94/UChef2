@@ -5,6 +5,8 @@ const recipeRoutes = require("./recipes");
 const ingredientsRoutes = require("./ingredients");
 const instructionsRoutes = require("./instructions");
 const spoonRoutes = require("./spoonacular");
+const cookbookRoutes = require("./cookbook");
+
 
 // // /api/book routes
 // router.use("/books", bookRoutes);
@@ -23,5 +25,8 @@ router.use("/instructions", instructionsRoutes);
 
 // // /api/spoonacular routes
  router.use("/spoonacular", spoonRoutes);
+
+// // /api/cookbook routes
+router.use("/cookbook", cookbookRoutes);
 
 module.exports = router;
