@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import MainJumbotron from "../components/MainJumbotron";
 import RecipeCard from "../components/RecipeCards";
+import ShoppingListCard from "../components/ShoppingListCard";
 
 
 class Landing extends Component {
@@ -94,19 +95,22 @@ class Landing extends Component {
     return (
       <Container fluid>
 
+        {/* Include a header for Shopping List */}
+        <div className="shopping-header">
+
+        </div>
 
 
-        <MainJumbotron>
-          <h1>Shopping List</h1>
+        <ShoppingListCard>
 
-          <i className="fas fa-columns"></i>
-          <i className="far fa-lightbulb"></i>
-          <i className="fas fa-carrot"></i>
-          <i className="fas fa-leaf"></i>
+          <h1>Shopping List  
+            <i className="fas fa-columns"></i>
+            <i className="far fa-lightbulb"></i>
+            <i className="fas fa-carrot"></i>
+            <i className="fas fa-leaf"></i>
+          </h1>
 
-          <div id="ecochef-jumbo">EcoChef</div>
-
-        </MainJumbotron>
+        </ShoppingListCard>
 
 
 
