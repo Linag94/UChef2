@@ -6,6 +6,7 @@ import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
+import Cookbook from "./pages/Cookbook";
 import Shopping from "./pages/Shopping";
 // import Client from "./pages/Client";
 
@@ -62,7 +63,7 @@ class App extends React.Component {
           <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/landing" render={(props) => <Landing {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
-          {/* <Route exact path="/client" render={(props) => <Client {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} /> */}
+          <Route exact path="/cookbook" render={(props) => <Cookbook {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/dashboard" render={(props) => <Dashboard {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/shoppinglist" render={(props) => <Shopping {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
 

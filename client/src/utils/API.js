@@ -30,8 +30,8 @@ export default {
   findRecipeById: id=> axios.get("/api/ingredients/" + id),
   deleteRecipetById: id => axios.delete("/api/ingredients/" + id),
   
-  // Instructions routes ============================
-  // getIngredients: ()=> axios.get("/api/ingredients"),
+  // user cookbook routes ============================
+    // getUserCookBook: ()=> axios.get("/api/cookbook"),
   // addIngredient: data => axios.post("/api/ingredients", data),
   // findIngredientById: id=> axios.get("/api/ingredients/" + id),
   // updateIngredientById: id=> axios.put("/api/ingredients/" + id),
