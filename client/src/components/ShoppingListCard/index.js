@@ -8,10 +8,17 @@ function ShoppingListCard(props) {
 <div class="card" style={{width: `50rem`}}>
   <div class="card-body">
     <h5 class="card-title">Shopping List</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Button Here</a>
-    <a href="#" class="card-link">Button There</a>
+    <p class="card-text">
+
+        <ul>
+            {/* Entry point for ingredient items to be searched in database */}
+            <li>Item 1 <a href="#" class="card-link">X</a></li>    
+            <li>Item 2<a href="#" class="card-link">X</a></li>   
+            <li>Item 3<a href="#" class="card-link">X</a></li>
+            <li>Item 3<a href="#" class="card-link">X</a></li>
+        </ul>
+    </p>
+
   </div>
 </div>
 
