@@ -7,15 +7,16 @@ function ShoppingListCard(props) {
 
 <div class="card" style={{width: `50rem`}}>
   <div class="card-body">
-    <h5 class="card-title">Shopping List</h5>
+    <h3 class="card-title">Shopping List</h3>
+    <hr></hr>
     <p class="card-text">
 
-        <ul>
+        <ul className="shoppinglist-list">
             {/* Entry point for ingredient items to be searched in database */}
             <li>Item 1 <a href="#" class="card-link">X</a></li>    
             <li>Item 2<a href="#" class="card-link">X</a></li>   
             <li>Item 3<a href="#" class="card-link">X</a></li>
-            <li>Item 3<a href="#" class="card-link">X</a></li>
+            <li>Item 4<a href="#" class="card-link">X</a></li>
         </ul>
     </p>
 
