@@ -2,30 +2,38 @@ import React from "react";
 import "./style.css";
 
 function ShoppingListCard(props) {
-    const { card, searchIngredients, searchInstructions, viewHideInstructions, saveUserRecipe, authenticated } = props;
-    return (
+  const { card, searchUserRecipes, authenticated } = props;
+  return (
 
-<div class="card" style={{width: `50rem`}}>
-  <div class="card-body">
-    <h3 class="card-title">Shopping List</h3>
-    <hr></hr>
-    <p class="card-text">
+    <div class="card" style={{ width: `50rem` }}>
+      <div class="card-body">
+        <h5 class="card-title">Shopping List</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Button Here</a>
+        <a href="#" class="card-link">Button There</a>
 
-        <ul className="shoppinglist-list">
-            {/* Entry point for ingredient items to be searched in database */}
-            <li>Item 1 <a href="#" class="card-link">X</a></li>    
-            <li>Item 2<a href="#" class="card-link">X</a></li>   
-            <li>Item 3<a href="#" class="card-link">X</a></li>
-            <li>Item 4<a href="#" class="card-link">X</a></li>
-        </ul>
-    </p>
+        { searchUserRecipes(authenticated._id)}
+        {/* <button onClick={() => searchUserRecipes(authenticated._id)}>Display</button> */}
+        <div className="summaryCards ">
 
-  </div>
-</div>
+          {card.savedRecipes ? (<>
+            <ol>
 
-
-
-    );
+              {
+                card.savedRecipes.map((res, i) => {
+                  return <li key={i + '-ins'}>{res[0].name}</li>
+                })
+              }
+            </ol>
+          </>)
+            : (
+              <p>Need to login first</p>
+            )}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 
