@@ -19,9 +19,11 @@ export default {
   getSpoonacularIngredients: id =>{
     return axios.get(`/api/spoonacular/spooningredients/${id}`)
   },
-  updateUserByRecipeId: (id, recipeID) => axios.put("/api/user/"+id, {
+  updateUserByRecipeId: (id, recipeID, name, image ) => axios.put("/api/user/"+id, {
     id: id, 
-    recipeID: recipeID
+    recipeID: recipeID,
+    name: name,
+    image: image
   }),
   
   // Recipes routes ============================
@@ -53,6 +55,8 @@ export default {
   },
   authenticateUser: function () {
     return axios.post("/api/user/authenticate", xhrHeader)
-  }
+  },
+  findRecipesByUser: id => axios.get("/api/user/" + id),
+
 
 };
