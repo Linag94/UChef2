@@ -19,7 +19,7 @@ var UserSchema = new mongoose.Schema({
     required: true
   },
   savedRecipes:{
-    type: [String]
+    type: [Array]
   },
 });
 

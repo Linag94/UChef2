@@ -53,7 +53,7 @@ function RecipeCard(props) {
 
             <button className="Ingredientsbtn" onClick={() => searchIngredients(card.id)}> View Ingredients </button>
             <button className="Instructionsbtn" onClick={() => searchInstructions(card.id)}> View Instructions </button>
-            <button className="SaveButton fas fa-save" onClick={() => saveUserRecipe(authenticated._id, card.id)}> Save </button>
+            <button className="SaveButton fas fa-save" onClick={() => saveUserRecipe(authenticated._id, card.id, card.title, card.image)}> Save </button>
 
         </div>
 

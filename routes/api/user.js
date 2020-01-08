@@ -19,7 +19,11 @@ router.route("/")
 
 // Matches with "/api/user"
 router.route("/:id")
-  .put(userController.update)
+  .put(userController.update);
+
+  // Matches with "/api/user"
+router.route("/:id")
+.get(userController.findById)
 
 
 // TO-DO: logout route (delete cookie and session - req.session.destroy)

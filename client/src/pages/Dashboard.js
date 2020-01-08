@@ -9,8 +9,7 @@ import RecipeCard from "../components/RecipeCards";
 class Landing extends Component {
   state = {
     ingredient: "",
-    spoonacular: [],
-    weather: []
+    spoonacular: []
   };
 
   componentDidMount() {
@@ -104,8 +103,8 @@ class Landing extends Component {
 
   
   // save recipe for user
-  saveUserRecipe = (id, recipeID) => {
-    API.updateUserByRecipeId(id, recipeID)
+  saveUserRecipe = (id, recipeID, name, image) => {
+    API.updateUserByRecipeId(id, recipeID, name, image)
       .then(results => {
         console.log(results)
       })
@@ -141,7 +140,7 @@ class Landing extends Component {
 
               <RecipeCard
                 key={i + "- recipe"}
-                 card={card}
+                card={card}
                 viewHideInstructions={this.viewHideInstructions}
                 viewHideIngregients={this.viewHideIngregients}
                 searchIngredients={this.searchIngredients}
