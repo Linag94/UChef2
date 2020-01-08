@@ -8,11 +8,12 @@ import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
 import Cookbook from "./pages/Cookbook";
 import Shopping from "./pages/Shopping";
+import NavbarItem from "./components/NavbarItem"; 
 // import Client from "./pages/Client";
-
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import {/* getCookie, */ authenticateUser, logOut} from "./utils/handleSessions";
+
 
 
 class App extends React.Component {
@@ -57,7 +58,12 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Nav logout={this.logout}/>
+        {/* <Nav logout={this.logout}/> */}
+        <Nav logout={this.logout}>
+          <NavbarItem>
+
+          </NavbarItem>
+        </Nav>
         <Switch>
           <Route exact path="/" render={(props) => <Landing {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
