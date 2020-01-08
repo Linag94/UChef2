@@ -13,19 +13,27 @@ function ShoppingListCard(props) {
         <a href="#" class="card-link">Button Here</a>
         <a href="#" class="card-link">Button There</a>
 
-        { searchUserRecipes(authenticated._id)}
+        {searchUserRecipes(authenticated._id)}
         {/* <button onClick={() => searchUserRecipes(authenticated._id)}>Display</button> */}
         <div className="summaryCards ">
 
           {card.savedRecipes ? (<>
-            <ol>
 
-              {
-                card.savedRecipes.map((res, i) => {
-                  return <li key={i + '-ins'}>{res[0].name}</li>
-                })
-              }
-            </ol>
+         
+              <ol>
+              
+                {
+                  card.savedRecipes.map((res, i) => {
+                    return <div className="cardHolder">
+                      <img className="smallCard" src={"https://spoonacular.com/recipeImages/"+res[0].image} alt="" />
+                      {/* <img>key={i + '-ins'}>{res[0].name}</img> */}
+                      <p key={i + '-ins'}>{res[0].name}</p>
+                      </div>
+                  })
+                }
+                 <img alt="Chicken Saltimbocca" src="https://spoonacular.com/recipeImages/chicken-saltimbocca-2-136858.png"></img>
+              </ol>
+           
           </>)
             : (
               <p>Need to login first</p>

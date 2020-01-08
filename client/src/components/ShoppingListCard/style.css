@@ -124,3 +124,15 @@
     /* clear: both; */
   }
   
+  .cardHolder {
+    border-color: coral;
+    /* border-width: 2px; */
+    border-style: solid;
+  }
+
+  .smallCard{
+    height: 80px;
+    width: 80px;
+    clear: both;
+    /* float: left; */
+  }
