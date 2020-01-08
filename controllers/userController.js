@@ -87,13 +87,16 @@ module.exports = {
         { _id: req.params.id },
         {
           $push:
-            { savedRecipes: req.body.recipeID }
+            { savedRecipes: [{recipeID: req.body.recipeID, name: req.body.name, image: req.body.image}]  }
         })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-
-
-
+  findById: function(req, res) {
+    db.User
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 
 };
