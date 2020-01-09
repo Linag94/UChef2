@@ -1,50 +1,23 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import MainJumbotron from "../components/MainJumbotron";
-// import Cookbook from "../components/LandingJumbo";
-import PlanImage from "../pages/images/PlanBG.jpg";
-import CreateImage from "../pages/images/CreateBG.jpg";
-import ConsciousImage from "../pages/images/ConsciousBG.jpg";
-
-//Styles for each Landing Jumbotron
-var planJumboStyle = {
-  backgroundImage: `url(` + PlanImage + `)`,
-  height: `100%`,
-  width: `100%`,
-  backgroundSize: `cover`,
-  backgroundPosition: `center`,
-  color: `black`,
-  padding: `270px`
-};
-var createJumboStyle = {
-  backgroundImage: `url(` + CreateImage + `)`,
-  height: `100%`,
-  width: `100%`,
-  backgroundSize: `cover`,
-  backgroundPosition: `center`,
-  padding: `160px`
-};
-var consciousJumboStyle = {
-  backgroundImage: `url(` + ConsciousImage + `)`,
-  height: `100%`,
-  width: `100%`,
-  backgroundSize: `cover`,
-  backgroundPosition: `center`,
-  padding: `200px`
-};
+import { Container } from "../components/Grid";
+import CookBookCard from "../components/CookBookCard";
 
 class CookBook extends Component {
-  state = {
-    recipes: "",
-    spoonacular: []
-  };
+  constructor(props) {
+    super();
+    this.state = {
+      user: "",
+      recipes: "",
+      ingredient: "",
+      instructions: "",
+      spoonacular: []
+    };
+  }
 
   componentDidMount() {
     // call api recipes
-        
-
   }
 
   handleInputChange = event => {
@@ -53,23 +26,39 @@ class CookBook extends Component {
       [name]: value
     });
   };
+  searchUserRecipes = id => {
+    API.findRecipesByUser(id)
 
-
+      .then(results => {
+        this.setState(
+          {
+            user: results.data
+          },
+          () => console.log(this.state.user.savedRecipes)
+        );
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
       <Container fluid>
-        <MainJumbotron>
-          <h1>CookBook</h1>
-        </MainJumbotron>
-        {/* render cards for recipes */}
-       
+        <div>
+          <CookBookCard
+            searchUserRecipes={this.searchUserRecipes}
+            authenticated={this.props.authenticated}
+            card={this.state.user}
+          ></CookBookCard>
+        </div>
+
+        {/* Redirect on authentication */}
+
+        {this.props.authenticated ? <Redirect to="/cookBook" /> : <div></div>}
       </Container>
     );
   }
 }
 
 export default CookBook;
-
-
-

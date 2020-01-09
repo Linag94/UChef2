@@ -51,12 +51,6 @@ class Landing extends Component {
           >
           </ResultsCard>
         </div>
-
-        {/* Redirect on authentication */}
-
-        {this.props.authenticated ? <Redirect to='/shoppinglist' /> : <div></div>}
-
-
       </Container >
     );
   }

@@ -53,6 +53,12 @@ export default {
   signup: function (user) {
     return axios.post("/api/user/signup", user, xhrHeader)
   },
+  cookBook: function (user) {
+    return axios.post("/api/user/id", user, xhrHeader)
+  },
+  shopping: function (user) {
+    return axios.post("/api/user/id", user, xhrHeader)
+  },
   authenticateUser: function () {
     return axios.post("/api/user/authenticate", xhrHeader)
   },
