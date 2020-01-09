@@ -1,39 +1,36 @@
 import React from "react";
 import "./style.css";
 
-function ShoppingListCard(props) {
-  const { card, searchUserRecipes, authenticated } = props;
+function ShoppingListCard({ recipes, getIngredients }) {
   return (
 
-    <div class="card" style={{ width: `50rem` }}>
+    <div class="displaycard">
       <div class="card-body">
-        <h5 class="card-title">Shopping List</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Button Here</a>
-        <a href="#" class="card-link">Button There</a>
-
-        { searchUserRecipes(authenticated._id)}
-        {/* <button onClick={() => searchUserRecipes(authenticated._id)}>Display</button> */}
+        <h2 class="card-title">Saved Recipes</h2>
+        <p class="card-title">Click on a recipe below to view the required ingredients</p>
         <div className="summaryCards ">
+          <ol>
 
-          {card.savedRecipes ? (<>
-            <ol>
-
-              {
-                card.savedRecipes.map((res, i) => {
-                  return <li key={i + '-ins'}>{res[0].name}</li>
-                })
-              }
-            </ol>
-          </>)
-            : (
-              <p>Need to login first</p>
-            )}
+            {
+              recipes.map((res, i) => {
+                return (
+                  <div key={i + '-ins'} className="cardHolder" onClick={() => getIngredients(res[0].recipeID)}>
+                    <img className="smallCard" src={"https://spoonacular.com/recipeImages/" + res[0].image} alt="" />
+                    <h4>{res[0].name}</h4>
+                  </div>)
+              })
+            }
+          </ol>
         </div>
       </div>
     </div>
+
   );
+}
+
+ShoppingListCard.defaultProps = {
+  recipes: [],
+  getIngredients: function(){}
 }
 
 

@@ -24,7 +24,6 @@ class App extends React.Component {
 
   authenticate = () => authenticateUser()
     .then(auth => {
-      console.log(auth)
       this.setState({authenticated: auth.data, loading:false}, ()=>console.log(this.state))
     })
     .catch(data => {
