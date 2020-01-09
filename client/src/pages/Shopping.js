@@ -3,17 +3,13 @@ import API from '../utils/API';
 import { Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import ShoppingListCard from "../components/ShoppingListCard";
+import ResultsCard from "../components/ResultsCard";
 
 
 class Landing extends Component {
   state = {
-    ingredient: "",
-    user: [],
-    spoonacular: []
+    ingredients: [],
   };
-
-  componentDidMount() {
-  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -22,13 +18,13 @@ class Landing extends Component {
     });
   };
 
-  searchUserRecipes = (id) => {
-    API.findRecipesByUser(id)
-
+  getIngredients = (id) => {
+    API.getSpoonacularIngredients(id)
       .then(results => {
+        // console.log(results)
         this.setState({
-          user: results.data
-        }, () => console.log(this.state.user.savedRecipes))
+          ingredients: results.data
+        }, () => console.log(this.state.ingredients))
 
       })
       .catch(err => {
@@ -36,19 +32,24 @@ class Landing extends Component {
       })
   }
 
+
   render() {
     return (
       <Container fluid>
 
         <div>
           <ShoppingListCard
-            searchUserRecipes={this.searchUserRecipes}
-            authenticated={this.props.authenticated}
-            card={this.state.user}
+            recipes={this.props.authenticated.savedRecipes}
+            getIngredients={this.getIngredients}
           >
-
-
           </ShoppingListCard>
+        </div>
+
+        <div>
+          <ResultsCard
+            ingredients={this.state.ingredients}
+          >
+          </ResultsCard>
         </div>
 
         {/* Redirect on authentication */}
@@ -63,110 +64,29 @@ export default Landing;
 
 
 
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-
-  // searchSpoonacular = () => {
-  //   API.getSpoonacularResults(this.state.ingredient, 3)
+  // searchUserRecipes = (id) => {
+  //   API.findRecipesByUser(id)
   //     .then(results => {
   //       this.setState({
-  //         spoonacular: results.data.results.map(x => {
-  //           return ({
-  //             ...x,
-  //             selected: false
-  //           })
-  //         })
-  //       }, () => console.log(this.state))
+  //         user: results.data
+  //       }, ()=>console.log(this.state.user))
+
   //     })
   //     .catch(err => {
   //       console.log(err)
   //     })
   // }
 
-  // viewHideInstructions = id => {
-  //   this.setState({
-  //     spoonacular: this.state.spoonacular.map(x => {
-  //       if (x.id === id) {
-  //         return ({ ...x, selected: !x.selected })
-  //       }
-  //       return x
-  //     })
+  // getIngredients(id){
+  //   console.log(id)
+  //   API.findRecipeById(id)
+  //   .then(results => {
+  //     this.setState({
+  //       spoonacular: results.data
+  //     }, console.log(results) )
+
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
   //   })
   // }
-
-  // // get ingredients
-  // searchIngredients = (id) => {
-  //   API.getSpoonacularIngredients(id)
-  //     .then(results => {
-  //       this.setState({
-  //         spoonacular: this.state.spoonacular.map(x => {
-  //           if (x.id === id) {
-  //             return ({ ...x, ingredients: results.data })
-  //           }
-  //           return x
-  //         })
-  //       }, () => console.log(this.state))
-
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
-
-  // // get instructions
-  // searchInstructions = (id) => {
-  //   API.getSpoonacularInstructions(id)
-  //     .then(results => {
-
-  //       this.setState({
-  //         spoonacular: this.state.spoonacular.map(x => {
-  //           if (x.id === id) {
-  //             return ({ ...x, instructions: results.data, selected: true })
-  //           }
-  //           return x
-  //         })
-  //       }, () => console.log(this.state))
-
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
-
-//   <div>
-
-//   {
-//     this.state.spoonacular.map((card, i) =>
-
-//       <RecipeCardsBasic
-//         key={i + "- user"}
-//         card={card}
-//         searchUserRecipes={this.searchUserRecipes}
-//         // viewHideInstructions={this.viewHideInstructions}
-//         // viewHideIngregients={this.viewHideIngregients}
-//         // searchIngredients={this.searchIngredients}
-//         // searchInstructions={this.searchInstructions}
-//         // saveUserRecipe={this.saveUserRecipe}
-//         authenticated={this.props.authenticated}
-
-//       />)
-//   }
-// </div> */}
-
-      // {/* <div>
-      //     {
-      //       this.state.user.map((card, i) =>
-
-      //         <ShoppingListCard
-      //           key={i + "- user"}
-      //           card={card}
-      //           card={this.state.user}
-      //           searchUserRecipes={this.searchUserRecipes}
-      //           authenticated={this.props.authenticated}
-      //         />)
-      //     }
-      //   </div> */}

@@ -10,18 +10,18 @@ html {
     box-sizing: inherit;
   }
   
-  body {
+  /* body { */
     /* position: relative;
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%; */
-    margin: 0 0 200px;
+    /* margin: 0 0 200px; */
     /* bottom = footer height */
     /* padding: 25px; */
-  }
+  /* } */
 #footer{
     background-color: rgb(57, 110, 156, 1);
-    position: absolute;
+    position: static;
     left: 0;
     bottom: 0;
     height: 190px;

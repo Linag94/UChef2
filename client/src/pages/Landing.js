@@ -51,6 +51,7 @@ class Landing extends Component {
     ingredient: "",
     spoonacular: []
   };
+  
 
   componentDidMount() {}
 
