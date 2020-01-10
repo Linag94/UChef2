@@ -1,38 +1,38 @@
 html {
-    min-height: 100%;
-    box-sizing: border-box;
-    position: relative;
-  }
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  
-  /* body { */
-    /* position: relative;
-    margin: 0;
-    padding-bottom: 6rem;
-    min-height: 100%; */
-    /* margin: 0 0 200px; */
-    /* bottom = footer height */
-    /* padding: 25px; */
-  /* } */
+  min-height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  /* position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%; */
+  margin: 0 0 200px;
+  /* bottom = footer height */
+  /* padding: 25px; */
+}
 #footer{
-    background-color: rgb(57, 110, 156, 1);
-    position: static;
-    left: 0;
-    bottom: 0;
-    height: 190px;
-    width: 100%;
-    overflow: hidden;
-    color: white;
+  background-color: rgb(57, 110, 156, 1);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 190px;
+  width: 100%;
+  overflow: hidden;
+  color: white;
 }
 .footer-list{
-    list-style-type: none;
-    float: none;
+  list-style-type: none;
+  float: none;
 }
 .footer-icon{
-    font-size: 30px;
+  font-size: 30px;
 }
