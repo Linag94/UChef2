@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 import Button from "../Button"
+import { Link } from "react-router-dom";
+
 
 function Nav(props) {
   return (
@@ -14,10 +16,16 @@ function Nav(props) {
 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
 <ul className="nav navbar-nav mr-sm-2 w-100 justify-content-end">
   <li class="nav-item"> 
-<a class="nav-link" id="login" href="/shoppinglist">Shopping List</a>
+{/* <a class="nav-link" id="login" href="/shoppinglist">Shopping List</a> */}
+<Link to = "/shoppinglist">
+Shoppinglist
+</Link>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="login" href="/cookbook">Cookbook</a>
+{/* <a class="nav-link" id="login" href="/cookbook">Cookbook</a> */}
+<Link to = "/cookbook">
+Cookbook
+</Link>
 </li>
 
 <li class="nav-item">

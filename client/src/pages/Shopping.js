@@ -7,10 +7,12 @@ import ResultsCard from "../components/ResultsCard";
 
 
 class Landing extends Component {
-  state = {
+constructor(props){
+  super(props)
+  this.state = {
     ingredients: [],
   };
-
+}
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -54,7 +56,7 @@ class Landing extends Component {
 
         {/* Redirect on authentication */}
 
-        {this.props.authenticated ? <Redirect to='/shoppinglist' /> : <div></div>}
+        {/* {this.props.authenticated ? <Redirect to='/shoppinglist' /> : <div></div>} */}
 
 
       </Container >
