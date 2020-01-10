@@ -1,12 +1,25 @@
-.card {
+.displaycard {
     background: #fff;
     display: inline-block;
     border-radius: 2px;
-    height: 500px;
     margin: 1rem;
-    width: 30%;
+    width: 45%;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-   
+   clear: both;
+   overflow: hidden;
+   float: left;
+  }
+
+  .resultscard {
+    background: #fff;
+    display: inline-block;
+    border-radius: 2px;
+    margin: 1rem;
+    width: 45%;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+   clear: both;
+   overflow: hidden;
+   /* float: left; */
   }
   
   .card>.img-container {
@@ -123,7 +136,17 @@
     float: left;
     /* clear: both; */
   }
-  .shoppinglist-list{
-      float: left;
-  }
+
   
+  .cardHolder {
+    border-color: coral;
+    /* border-width: 2px; */
+    border-style: solid;
+  }
+
+  .smallCard{
+    height: 80px;
+    width: 80px;
+    clear: both;
+    /* float: left; */
+  }
