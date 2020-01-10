@@ -4,12 +4,12 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  // Redirect
+  Redirect
 } from "react-router-dom";
 import Login from "./pages/Login";
 import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
-// import NoMatch from "./pages/NoMatch";
+import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
 import Cookbook from "./pages/Cookbook";
 import Shopping from "./pages/Shopping";
@@ -99,13 +99,12 @@ class App extends React.Component {
               path="/login"
               render={props => (
                 <Login
-                {...props}
-                authenticate={this.authenticate}
-                authenticated={this.state.authenticated}
+                  {...props}
+                  authenticate={this.authenticate}
+                  authenticated={this.state.authenticated}
                 />
                 
-                // const {... from } = this.props.location.state || { from: { pathname: '/' } }
-                )}
+              )}
             />
             <Route
               exact
@@ -140,22 +139,16 @@ class App extends React.Component {
                 />
               )}
             />
-            <Route exact path="/shoppinglist" render={(props) => <Shopping {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+            {/* <Route exact path="/shoppinglist" render={(props) => <Shopping {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} /> */}
 
-            <Route
+            <PrivateRoute
               exact
-              path="/shoppinglist"
-              // auth={this.state.authenticated}
-              // component={Shopping}
-              render={props => (
-                <Dashboard
-                  {...props}
-                  authenticate={this.authenticate}
-                  authenticated={this.state.authenticated}
-                />
-              )}
+              path= "/shoppinglist"
+              auth={this.state.authenticated}
+              component={Shopping}
             />
-            {/* <Route component={NoMatch} /> */}
+
+            <Route component={NoMatch} />
           </Switch>
           <Footer></Footer>
         </div>
@@ -165,19 +158,19 @@ class App extends React.Component {
   }
 }
 
-// function PrivateRoute({ component: Component, auth, ...rest }) {
-//   console.log("PRIVATE ROUTE: %s", auth);
-//   return (
-//     <Route
-//       {...rest}
-//       render={() =>
-//         auth ? <Component authenticated={auth} /> : <Redirect to={{
-//           pathname: '/login',
-//           state: { from: auth.location }
-//         }} />
-//       }
-//     />
-//   );
-// }
+function PrivateRoute({ component: Component, auth, ...rest }) {
+  console.log("PRIVATE ROUTE: %s", auth);
+  return (
+    <Route
+      {...rest}
+      render={() =>
+        auth ? <Component authenticated={auth} /> : <Redirect to={{
+          pathname: '/login',
+          state: { from: auth.location }
+        }} />
+      }
+    />
+  );
+}
 
 export default App;
