@@ -6,7 +6,7 @@ function ResultsCardInstructions({ instructions }) {
 
     <div class="resultscard">
       <div class="card-body">
-        <h2 class="card-title">Shopping List</h2>
+        <h2 class="card-title">Recipe Instructions</h2>
         <table className="summaryCards ">
           <thead>
             <tr>
