@@ -49,18 +49,23 @@ class Login extends Component {
       <Container fluid>
         <Row>
           <Col size="12">
-            <form>
+            <div>
+              <h3>Log In</h3>
+            </div>
+            <br>
+            </br>
+            <form style={{width: `50%`}}>
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
-                placeholder="email (required)"
+                placeholder="E-mail"
               />
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(required)"
+                placeholder="Password"
                 type="password"
               />
 
