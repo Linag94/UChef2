@@ -8,7 +8,7 @@ import ResultsCardInstructions from "../components/ResultsCardInstructions";
 class Landing extends Component {
   constructor(props){
   super(props)
-  state = {
+  this.state = {
     instructions: [],
   };
 }
