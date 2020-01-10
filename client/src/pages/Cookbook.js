@@ -6,7 +6,7 @@ import CookBookCard from "../components/CookBookCard";
 
 class CookBook extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       user: "",
       recipes: "",
@@ -16,8 +16,15 @@ class CookBook extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     // call api recipes
+    console.log("componentWillMount")
+    if (this.state.user._id) {
+      console.log(this.state.user._id)
+
+      this.searchUserRecipes(this.state.user._id) 
+    }
+
   }
 
   handleInputChange = event => {
@@ -27,15 +34,18 @@ class CookBook extends Component {
     });
   };
   searchUserRecipes = id => {
+    console.log("searchUserRecipes")
     API.findRecipesByUser(id)
 
       .then(results => {
-        this.setState(
-          {
-            user: results.data
-          },
-          () => console.log(this.state.user.savedRecipes)
-        );
+        console.log(results)
+
+        // this.setState(
+        //   {
+        //     user: results.data
+        //   },
+        //   () => console.log(this.state.user.savedRecipes)
+        // );
       })
       .catch(err => {
         console.log(err);
@@ -55,7 +65,7 @@ class CookBook extends Component {
 
         {/* Redirect on authentication */}
 
-        {this.props.authenticated ? <Redirect to="/cookBook" /> : <div></div>}
+        {/* {this.props.authenticated ? <Redirect to="/cookBook" /> : <div></div>} */}
       </Container>
     );
   }
