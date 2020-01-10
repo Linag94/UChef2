@@ -106,7 +106,8 @@ class Landing extends Component {
   saveUserRecipe = (id, recipeID, name, image) => {
     API.updateUserByRecipeId(id, recipeID, name, image)
       .then(results => {
-        console.log(results)
+        console.log(results);
+        alert("Your Recipe Has Been Saved!!")
       })
       .catch(err => {
         console.log(err)

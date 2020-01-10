@@ -139,9 +139,13 @@
 
   
   .cardHolder {
-    border-color: coral;
-    /* border-width: 2px; */
+    border-color: grey;
+    border-width: 1px;
     border-style: solid;
+  }
+  
+  .cardHolder:hover {
+    background-color: lightgreen;
   }
 
   .smallCard{
