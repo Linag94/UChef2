@@ -54,24 +54,28 @@ class Signup extends Component {
         {this.props.authenticated && <Redirect to="/dashboard" />}
         <Row>
           <Col size="12">
-            <form>
+            <div>
+              <h2>Sign Up!</h2>
+              <br></br>
+            </div>
+            <form style={{width:`50%`}}>
               <Input
                 value={this.state.username}
                 onChange={this.handleInputChange}
                 name="username"
-                placeholder="username (required)"
+                placeholder="Username (required)"
               />
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
-                placeholder="email (required)"
+                placeholder="Email (required)"
               />
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="Password(required)"
+                placeholder="Password (required)"
                 type="password"
               />
               <Input
@@ -83,7 +87,7 @@ class Signup extends Component {
               />
 
               <label>
-                Household Size ?:
+                Select Household Size:
                 <select
                   value={this.state.servingSize}
                   name="servingSize"
@@ -96,7 +100,7 @@ class Signup extends Component {
                 </select>
               </label>
               <label>
-                Meal Preference:
+                Dietary Preference:
                 <select
                   value={this.state.value}
                   name="value"
