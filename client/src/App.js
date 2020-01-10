@@ -117,15 +117,12 @@ class App extends React.Component {
                 />
               )}
             />
-            <Route
+             <PrivateRoute
               exact
-              path="/cookbook"
-              render={props => (
-                <Cookbook
-                  {...props}
-                  authenticate={this.authenticate}
-                  authenticated={this.state.authenticated}
-                />
+              path= "/cookbook"
+              auth={this.state.authenticated}
+              component={Cookbook}
+            />
               )}
             />
             <Route
