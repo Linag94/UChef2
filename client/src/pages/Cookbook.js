@@ -6,10 +6,12 @@ import CookBookCard from "../components/CookBookCard";
 import ResultsCardInstructions from "../components/ResultsCardInstructions";
 
 class Landing extends Component {
+  constructor(props){
+  super(props)
   state = {
     instructions: [],
   };
-
+}
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -54,7 +56,7 @@ class Landing extends Component {
 
         {/* Redirect on authentication */}
 
-        {this.props.authenticated ? <Redirect to='/cookbook' /> : <div></div>}
+        {/* {this.props.authenticated ? <Redirect to='/cookbook' /> : <div></div>} */}
 
 
       </Container >
