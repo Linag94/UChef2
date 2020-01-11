@@ -109,7 +109,7 @@ class Landing extends Component {
           <Col size="md-6">
             <LandingJumbo>
               <div style={planJumboStyle}>
-                <h1>Plan</h1>
+                <h1>Always Creative.</h1>
                 <i className="fas fa-columns"></i>
               </div>
             </LandingJumbo>
@@ -117,9 +117,9 @@ class Landing extends Component {
           <Col size="md-6">
             <LandingJumbo>
             <div style={infoStyle}>
-              <h3>Cooking requires a lot of planning, but we can help!</h3>
+              <h3>Lots of ingredients? Out of ideas?</h3>
               <br></br>
-              <article> Automatically add ingredients from your favorite recipes to your shopping list.</article>
+              <article>Add them to your list and immediately find out which tasty meals you can cook for yourself... or for others!</article>
             </div>
           </LandingJumbo>
           </Col>
@@ -129,16 +129,36 @@ class Landing extends Component {
           <Col size="md-6">
             <LandingJumbo>
               <div style={infoStyle}>
-                <h1>Some information here.</h1>
-                <i className="far fa-lightbulb"></i>
+                <h3>In a rush?</h3>
+                <br></br>
+               <article>Instantly download ingredients from your favourite recipes to your shopping list. Now go bake that last-minute birthday cake!</article>
               </div>
             </LandingJumbo>
           </Col>
           <Col size="md-6">
             <LandingJumbo>
             <div style={createJumboStyle}>
-              <h1>Create.</h1>
+              <h1>Always prepared.</h1>
               <i className="far fa-lightbulb"></i>
+            </div>
+          </LandingJumbo>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-6">
+            <LandingJumbo>
+              <div style={planJumboStyle}>
+                <h1>Always Creative.</h1>
+                <i className="fas fa-columns"></i>
+              </div>
+            </LandingJumbo>
+          </Col>
+          <Col size="md-6">
+            <LandingJumbo>
+            <div style={infoStyle}>
+              <h3>Lots of ingredients? Out of ideas?</h3>
+              <br></br>
+              <article>Add them to your list and immediately find out which tasty meals you can cook for yourself... or for others!</article>
             </div>
           </LandingJumbo>
           </Col>
@@ -148,7 +168,10 @@ class Landing extends Component {
         <LandingJumbo>
           <div style={consciousJumboStyle}>
             <h1 className="conscious">Consciously.</h1>
-            <i className="fas fa-leaf"></i>
+            <br></br>
+            <article>EcoChef is dedicated to helping the environment and supporting local businesses. </article>
+            <br></br>
+            <h6>How do we do that? <a href="/mission">Click Here</a></h6>
           </div>
         </LandingJumbo>
 

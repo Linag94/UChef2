@@ -34,9 +34,15 @@ function Nav(props) {
 <a className="nav-link" id="login">My Dashboard</a>
 </Link>
 </li>
+<li class="nav-item"> 
+{/* <a class="nav-link" id="login" href="/shoppinglist">Shopping List</a> */}
+<Link to = "/mission">
+<a className="nav-link" id="login">About Us</a>
+</Link>
+</li>
 
 <li class="nav-item">
-<a class="nav-link" id="signup" href="/signup">Sign Up</a>
+<a class="nav-link" id="signup" href="/signup" style={{color:"gold"}}>Sign Up</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" style={{color: "black"}} id="login" href="/login">Log In</a>
