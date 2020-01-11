@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import MainJumbotron from "../components/MainJumbotron";
 import RecipeCard from "../components/RecipeCards";
+import Header from "../components/Header"
 
 
 class Landing extends Component {
@@ -118,21 +119,17 @@ class Landing extends Component {
     return (
       <Container fluid>
 
-        <MainJumbotron>
-          <h1>The Chef Has Arrived</h1>
-
-          <i className="fas fa-columns"></i>
-          <i className="far fa-lightbulb"></i>
-          <i className="fas fa-carrot"></i>
-          <i className="fas fa-leaf"></i>
-
-          <h3>Plan. Create. Cook. Responsibly.</h3>
+        <Header>
+        <div className="dashboard-header">
+          <h1>My Dashboard</h1>
+        </div>
           <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
           <button onClick={this.searchSpoonacular} >Search</button>
+
           {/* Add icons. Animate to make them appear in one by one*/}
           {/* <div id="ecochef-jumbo">EcoChef</div> */}
 
-        </MainJumbotron>
+        </Header>
 
         <div>
 
