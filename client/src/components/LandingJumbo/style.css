@@ -1,5 +1,6 @@
 body{
-    background-image: url("../../pages/images/food.png");
+    background-image: url("../../pages/images/dark_wood.png");
+    background-position: center;
 }
 #panel-jumbo{
     text-align: center;

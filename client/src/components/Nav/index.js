@@ -28,6 +28,12 @@ function Nav(props) {
 <a className="nav-link" id="login">Cookbook</a>
 </Link>
 </li>
+<li class="nav-item"> 
+{/* <a class="nav-link" id="login" href="/shoppinglist">Shopping List</a> */}
+<Link to = "/dashboard">
+<a className="nav-link" id="login">My Dashboard</a>
+</Link>
+</li>
 
 <li class="nav-item">
 <a class="nav-link" id="signup" href="/signup">Sign Up</a>
