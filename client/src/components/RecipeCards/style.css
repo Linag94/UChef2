@@ -2,7 +2,7 @@
   background: #fff;
   display: inline-block;
   border-radius: 2px;
-  height: 500px;
+  /* height: 500px; */
   margin: 1rem;
   width: 30%;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
@@ -113,13 +113,19 @@
 }
 
 .Instructionsbtn {
-  margin: 10px;
+  margin: 5px;
   float: left;
   /* clear: both; */
 }
 
 .Ingredientsbtn {
-  margin: 10px;
+  margin: 5px;
+  float: left;
+  /* clear: both; */
+}
+
+.btn-secondary {
+  margin: 5px;
   float: left;
   /* clear: both; */
 }
