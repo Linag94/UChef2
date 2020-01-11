@@ -113,13 +113,19 @@
 }
 
 .Instructionsbtn {
-  margin: 10px;
+  margin: 5px;
   float: left;
   /* clear: both; */
 }
 
 .Ingredientsbtn {
-  margin: 10px;
+  margin: 5px;
+  float: left;
+  /* clear: both; */
+}
+
+.btn-secondary {
+  margin: 5px;
   float: left;
   /* clear: both; */
 }
