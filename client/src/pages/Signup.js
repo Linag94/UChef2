@@ -55,7 +55,7 @@ class Signup extends Component {
         <Row>
           <Col size="12">
             <div>
-              <h2>Sign Up!</h2>
+              <h2 style={{color: `white`}}>Sign Up!</h2>
               <br></br>
             </div>
             <form style={{width:`50%`}}>
@@ -86,12 +86,13 @@ class Signup extends Component {
                 type="password"
               />
 
-              <label>
+              <label style={{color: `white`, marginRight: `10px`}}>
                 Select Household Size:
                 <select
                   value={this.state.servingSize}
                   name="servingSize"
                   onChange={this.handleInputChange}
+                  style={{marginLeft: `10px`}}
                 >
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -99,12 +100,13 @@ class Signup extends Component {
                   <option value="4">4 +</option>
                 </select>
               </label>
-              <label>
+              <label style={{color: `white`}}>
                 Dietary Preference:
                 <select
                   value={this.state.value}
                   name="value"
                   onChange={this.handleInputChange}
+                  style={{marginLeft: `10px`}}
                 >
                   <option href="Veggie">Vegatarian</option>
                   <option value="Fish">Pescatarian</option>
