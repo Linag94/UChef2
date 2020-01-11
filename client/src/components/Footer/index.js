@@ -27,7 +27,9 @@ function Footer({ children }) {
                     {/* Second Footer Column */}
                     <div className="col-md-6">
                         <ul className="footer-list">
-                            <li>Meet the Team</li>
+                            <li><a href="/mission">Our Mission</a></li>
+                            <li><a>Comming Soon: Cooking Resources</a></li>
+                            <li><a>Comming Soon: Grocery Store Resources</a></li>
                         </ul>
                     </div>
                 </div>
