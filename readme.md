@@ -3,7 +3,7 @@ https://github.com/ronerlih/project-3-boiler-authentication
 // morgan docs
 https://www.npmjs.com/package/morgan
 
------ Sams Notes ----
+
 
 -- How to get seed data 
 
