@@ -1,22 +1,17 @@
-https://github.com/ronerlih/project-3-boiler-authentication
+# Uchef
 
-// morgan docs
-https://www.npmjs.com/package/morgan
+Have you ever wanted to make a need recipe and didn't have all the ingredients to make it? Now you have to leave your recipe app and go to your note app. Look no futhered. Uchef allows you to do both in one appliction. 
+
+## How to get seed data
+
+1. npm run seed
+2. npm start.
 
 
+##Routes to call to get data (NB need to npm start first)
 
--- How to get seed data 
+* Get recipes here (http://localhost:3000/api/spoonacular/spooningredients/:ingredient/:numberOfResults)
 
-    1. npm run seed
-    2. npm start
+* Get instructions (NB need recipe ID from above) here (http://localhost:3000/api/spoonacular/spooninstructions/:id)
 
---- Routes to call to get data (NB need to npm start first)
-
-Get recipes
-http://localhost:3000/api/spoonacular/spooningredients/:ingredient/:numberOfResults
-
-Get instructions (NB need recipe ID from above)
-http://localhost:3000/api/spoonacular/spooninstructions/:id
-
-Get ingredients (NB need recipe ID from above)
-http://localhost:3000/api/spoonacular/spooningredients/:id
+* Get ingredients (NB need recipe ID from above) here (http://localhost:3000/api/spoonacular/spooningredients/:id)
