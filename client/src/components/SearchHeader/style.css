@@ -1,0 +1,18 @@
+.dashboard-header{
+    color: white;
+}
+
+#dashboard-search{
+    border-radius: 5px;
+    border-color: white;
+    margin-right: 10px;
+
+    width: 600px;
+    font-size: 20px;
+}
+
+#dashboard-search-btn{
+    border-radius: 5px;
+    font-size: 20px;
+    
+}

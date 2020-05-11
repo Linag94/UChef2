@@ -50,17 +50,24 @@ class Login extends Component {
         <Row>
           <Col size="12">
             <div>
-              <h3>Log In</h3>
+              <h3 style={{color: `white`}}>Log In</h3>
             </div>
             <br>
             </br>
+            <div style={{color: `white`}}>
+              Haven't signed up yet? <a href="/signup">Click Here!</a>
+            </div>
+
+            <br></br>
             <form style={{width: `50%`}}>
+              <div style={{color: `white`}}>Enter your e-mail:</div>
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
                 placeholder="E-mail"
               />
+              <div style={{color: `white`}}>Enter your password:</div>
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
@@ -77,7 +84,6 @@ class Login extends Component {
                 Login
               </FormBtn>
 
-            
             </form>
           </Col>
         </Row>

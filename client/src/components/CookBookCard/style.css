@@ -1,12 +1,12 @@
 .displaycard {
-    background: #fff;
-    display: inline-block;
-    border-radius: 2px;
-    margin: 1rem;
-    width: 45%;
-    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-   clear: both;
-   overflow: hidden;
+  background: #fff;
+  display: inline-block;
+  border-radius: 2px;
+  margin: 1rem;
+  width: 45%;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+ clear: both;
+ overflow: hidden;
    float: left;
   }
 
@@ -139,11 +139,20 @@
 
   
   .cardHolder {
-    border-color: coral;
+    border-color: grey;
+    border-width: 1px;
+    border-style: solid;
+  }
+  
+  .cardHolder:hover {
+    background-color: lightgreen;
+  }
+
+  .cardHolder:hover {
+    background-color: lightblue;
     /* border-width: 2px; */
     border-style: solid;
   }
-
   .smallCard{
     height: 80px;
     width: 80px;

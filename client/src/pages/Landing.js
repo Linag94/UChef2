@@ -7,6 +7,7 @@ import LandingJumbo from "../components/LandingJumbo";
 import PlanImage from "../pages/images/PlanBG.jpg";
 import CreateImage from "../pages/images/CreateBG.jpg";
 import ConsciousImage from "../pages/images/ConsciousBG.jpg";
+import InformedImage from "../pages/images/InformedImage.jpg";
 
 //Styles for each Landing Jumbotron
 var planJumboStyle = {
@@ -20,6 +21,14 @@ var planJumboStyle = {
 };
 var createJumboStyle = {
   backgroundImage: `url(` + CreateImage + `)`,
+  height: `100%`,
+  width: `100%`,
+  backgroundSize: `cover`,
+  backgroundPosition: `center`,
+  padding: `160px`
+};
+var informedJumboStyle = {
+  backgroundImage: `url(` + InformedImage + `)`,
   height: `100%`,
   width: `100%`,
   backgroundSize: `cover`,
@@ -109,17 +118,17 @@ class Landing extends Component {
           <Col size="md-6">
             <LandingJumbo>
               <div style={planJumboStyle}>
-                <h1>Plan</h1>
-                <i className="fas fa-columns"></i>
+                <h1>Always Creative.</h1>
+                <i className="far fa-lightbulb"></i>
               </div>
             </LandingJumbo>
           </Col>
           <Col size="md-6">
             <LandingJumbo>
             <div style={infoStyle}>
-              <h3>Cooking requires a lot of planning, but we can help!</h3>
+              <h3>Lots of ingredients? Out of ideas?</h3>
               <br></br>
-              <article> Automatically add ingredients from your favorite recipes to your shopping list.</article>
+              <article>Add them to your list and immediately find out which tasty meals you can cook for yourself... or for others!</article>
             </div>
           </LandingJumbo>
           </Col>
@@ -129,16 +138,39 @@ class Landing extends Component {
           <Col size="md-6">
             <LandingJumbo>
               <div style={infoStyle}>
-                <h1>Some information here.</h1>
-                <i className="far fa-lightbulb"></i>
+                <h3>In a rush?</h3>
+                <br></br>
+               <article>Instantly download ingredients from your favourite recipes to your shopping list. Now go bake that last-minute birthday cake!</article>
               </div>
             </LandingJumbo>
           </Col>
           <Col size="md-6">
             <LandingJumbo>
             <div style={createJumboStyle}>
-              <h1>Create.</h1>
-              <i className="far fa-lightbulb"></i>
+              <h1>Always prepared.</h1>
+              <br>
+              </br>
+              <i className="fas fa-columns"></i>
+              
+            </div>
+          </LandingJumbo>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-6">
+            <LandingJumbo>
+              <div style={informedJumboStyle}>
+                <br></br>
+                <h1>Always informed</h1>
+                <i className="fas fa-book"></i>
+              </div>
+            </LandingJumbo>
+          </Col>
+          <Col size="md-6">
+            <LandingJumbo>
+            <div style={infoStyle}>
+              <h3>Want to know how you can make a change through cooking?</h3>
+              <article>Browse through our tips and resources on local businesses to support in your area, on how to choose your ingredients seasonally, or how to shop for food while keeping your carbon footprint to a minimum.</article>
             </div>
           </LandingJumbo>
           </Col>
@@ -147,8 +179,11 @@ class Landing extends Component {
 
         <LandingJumbo>
           <div style={consciousJumboStyle}>
-            <h1 className="conscious">Consciously.</h1>
-            <i className="fas fa-leaf"></i>
+            <h1 className="conscious">Always Conscious.</h1>
+            <br></br>
+            <article>EcoChef is dedicated to helping the environment and supporting local businesses. </article>
+            <br></br>
+            <h5>How do we do that? <a href="/mission">Click Here</a></h5>
           </div>
         </LandingJumbo>
 
@@ -177,7 +212,7 @@ class Landing extends Component {
 
         {/* Redirect on authentication */}
 
-        {!this.props.authenticated && <Redirect to="/login" />}
+        {!this.props.authenticated && <Redirect to="/" />}
       </Container>
     );
   }

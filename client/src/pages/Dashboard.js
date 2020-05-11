@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import MainJumbotron from "../components/MainJumbotron";
 import RecipeCard from "../components/RecipeCards";
+import SearchHeader from "../components/SearchHeader"
 
 
 class Landing extends Component {
@@ -106,7 +107,8 @@ class Landing extends Component {
   saveUserRecipe = (id, recipeID, name, image) => {
     API.updateUserByRecipeId(id, recipeID, name, image)
       .then(results => {
-        console.log(results)
+        console.log(results);
+        alert("Your Recipe Has Been Saved!!")
       })
       .catch(err => {
         console.log(err)
@@ -117,21 +119,18 @@ class Landing extends Component {
     return (
       <Container fluid>
 
-        <MainJumbotron>
-          <h1>The Chef Has Arrived</h1>
+        <SearchHeader>
+        <div className="dashboard-header">
+          <h1>My Dashboard</h1>
+        </div>
+        </SearchHeader>
+          <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="dashboard-search" placeholder="Search by Ingredient or Recipe" />
+          <button id="dashboard-search-btn" onClick={this.searchSpoonacular} >Search</button>
 
-          <i className="fas fa-columns"></i>
-          <i className="far fa-lightbulb"></i>
-          <i className="fas fa-carrot"></i>
-          <i className="fas fa-leaf"></i>
-
-          <h3>Plan. Create. Cook. Responsibly.</h3>
-          <input type="text" name="ingredient" onChange={this.handleInputChange} value={this.state.ingredient} id="landing-form" placeholder="Search by Ingredient or Recipe" />
-          <button onClick={this.searchSpoonacular} >Search</button>
           {/* Add icons. Animate to make them appear in one by one*/}
           {/* <div id="ecochef-jumbo">EcoChef</div> */}
 
-        </MainJumbotron>
+
 
         <div>
 

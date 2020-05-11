@@ -13,6 +13,7 @@ import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
 import Cookbook from "./pages/Cookbook";
 import Shopping from "./pages/Shopping";
+import Mission from "./pages/Mission";
 // import Client from "./pages/Client";
 
 import Nav from "./components/Nav";
@@ -143,6 +144,18 @@ class App extends React.Component {
               path= "/shoppinglist"
               auth={this.state.authenticated}
               component={Shopping}
+            />
+            <Route
+              exact
+              path="/mission"
+              render={props => (
+                <Mission
+                  {...props}
+                  authenticate={this.authenticate}
+                  authenticated={this.state.authenticated}
+                />
+                
+              )}
             />
 
             <Route component={NoMatch} />

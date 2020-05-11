@@ -10,7 +10,7 @@ function ResultsCard({ ingredients }) {
         <table className="summaryCards ">
           <thead>
             <tr>
-              <th>Checkbox</th>
+              <th></th>
               <th>Ingredient</th>
               <th>Amount</th>
               <th>Unit of Measure</th>
