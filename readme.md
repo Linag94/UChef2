@@ -12,8 +12,8 @@ Have you ever wanted to make a need recipe and didn't have all the ingredients t
 
 * cd document/
 * git clone git@github.com/Linag94/UChef2/
-* cd clicky-game/
-* npm install to load react
+* cd uchef2/
+* npm 
 
 
 ## Routes to call to get data (NB need to npm start first)
@@ -23,3 +23,6 @@ Have you ever wanted to make a need recipe and didn't have all the ingredients t
 * Get instructions (NB need recipe ID from above) [here](http://localhost:3000/api/spoonacular/spooninstructions/:id)
 
 * Get ingredients (NB need recipe ID from above) [here](http://localhost:3000/api/spoonacular/spooningredients/:id)
+
+
+## Screenshot
