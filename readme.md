@@ -8,7 +8,15 @@ Have you ever wanted to make a need recipe and didn't have all the ingredients t
 2. npm start.
 
 
-##Routes to call to get data (NB need to npm start first)
+## Installing
+
+* cd document/
+* git clone git@github.com/Linag94/UChef2/
+* cd clicky-game/
+* npm install to load react
+
+
+## Routes to call to get data (NB need to npm start first)
 
 * Get recipes [here](http://localhost:3000/api/spoonacular/spooningredients/:ingredient/:numberOfResults)
 
