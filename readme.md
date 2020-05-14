@@ -27,5 +27,5 @@ Have you ever wanted to make a need recipe and didn't have all the ingredients t
 
 ## Screenshot
 
-![](images\Screenshot%20(6).png)
+![](https://i.ibb.co/KNLSndF/Screenshot-6.png)
 
