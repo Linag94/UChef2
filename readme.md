@@ -29,7 +29,7 @@ Have you ever wanted to make a need recipe and didn't have all the ingredients t
 
 ## Deployment
 
-[here](https://linag94.github.io/Lyricult/)
+[here](https://secure-sands-08802.herokuapp.com/)
 
 
 ## Screenshot
