@@ -10,19 +10,26 @@ Have you ever wanted to make a need recipe and didn't have all the ingredients t
 
 ## Installing
 
+* clone to computer
+* go to git bash
 * cd document/
 * git clone git@github.com/Linag94/UChef2/
 * cd uchef2/
-* npm 
+* code . 
+* npm in terminal 
 
 
-## Routes to call to get data (NB need to npm start first)
+## Built With (NB need to npm start first)
 
 * Get recipes [here](http://localhost:3000/api/spoonacular/spooningredients/:ingredient/:numberOfResults)
 
 * Get instructions (NB need recipe ID from above) [here](http://localhost:3000/api/spoonacular/spooninstructions/:id)
 
 * Get ingredients (NB need recipe ID from above) [here](http://localhost:3000/api/spoonacular/spooningredients/:id)
+
+## Deployment
+
+[here](https://linag94.github.io/Lyricult/)
 
 
 ## Screenshot
